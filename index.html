@@ -125,8 +125,8 @@
     #process { background: #f7f7f7; }
     .process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; margin-top: 3.5rem; }
     .process-step { position: relative; }
-    .process-step::after { content: '→'; position: absolute; right: -1.2rem; top: 0.5rem; color: var(--accent); font-size: 1.2rem; }
-    .process-step:last-child::after { display: none; }
+    .process-step::before { content: '→'; position: absolute; left: -1.2rem; top: 0.5rem; color: var(--accent); font-size: 1.2rem; }
+    .process-step:last-child::before { display: none; }
     .step-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: rgba(201,106,46,0.2); line-height: 1; margin-bottom: 1rem; }
     .process-step h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.6rem; }
     .process-step p { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
