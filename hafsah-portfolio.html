@@ -9,16 +9,16 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0a0906;
-      --bg2: #111009;
-      --bg3: #181510;
-      --cream: #f0e8d8;
-      --cream2: #d4c8b0;
+      --bg: #ffffff;
+      --bg2: #f7f7f7;
+      --bg3: #f0f0f0;
+      --cream: #1a1a1a;
+      --cream2: #333333;
       --accent: #c96a2e;
       --accent2: #e8a060;
       --gold: #c8a84b;
-      --muted: #6a6050;
-      --border: rgba(240,232,216,0.08);
+      --muted: #777777;
+      --border: rgba(0,0,0,0.08);
     }
 
     html { scroll-behavior: smooth; }
@@ -55,7 +55,7 @@
 
     /* SCROLLBAR */
     ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-track { background: #fff; }
     ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
 
     /* NAV */
@@ -63,7 +63,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.4rem 5rem;
-      background: rgba(10,9,6,0.85);
+      background: rgba(255,255,255,0.97);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
@@ -112,8 +112,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(240,232,216,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(240,232,216,0.025) 1px, transparent 1px);
+        linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
     }
@@ -121,7 +121,7 @@
       position: absolute;
       top: 20%; right: 10%;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(201,106,46,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(201,106,46,0.04) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-text { position: relative; z-index: 1; }
@@ -248,7 +248,7 @@
       object-position: center top;
       border-radius: 3px;
       position: relative; z-index: 1;
-      filter: grayscale(15%) contrast(1.05);
+      filter: grayscale(5%) contrast(1.02);
     }
     .hero-img-badge {
       position: absolute;
@@ -320,7 +320,7 @@
       font-size: clamp(2.2rem, 4vw, 3.2rem);
       font-weight: 300;
       line-height: 1.15;
-      color: var(--cream);
+      color: #1a1a1a;
     }
     .section-title strong { font-weight: 700; }
     .section-sub {
@@ -345,7 +345,7 @@
     .about-img img {
       width: 100%;
       border-radius: 3px;
-      filter: grayscale(10%) contrast(1.05);
+      filter: grayscale(5%) contrast(1.02);
     }
     .about-img-overlay {
       position: absolute;
@@ -408,7 +408,7 @@
     .skill-pct { font-size: 0.78rem; color: var(--accent); font-family: 'Cormorant Garamond', serif; font-weight: 600; }
     .skill-track {
       height: 2px;
-      background: var(--border);
+      background: #e8e8e8;
       border-radius: 2px;
       overflow: hidden;
     }
@@ -457,7 +457,7 @@
       margin-top: 1rem;
     }
     .exp-card {
-      background: var(--bg2);
+      background: #ffffff;
       padding: 3rem;
       border: 1px solid transparent;
       transition: border-color 0.3s, background 0.3s;
@@ -523,8 +523,8 @@
       margin-top: 1rem;
     }
     .project-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
       border-radius: 3px;
       overflow: hidden;
       transition: transform 0.3s, border-color 0.3s;
@@ -536,7 +536,7 @@
     .project-img {
       width: 100%; height: 220px;
       object-fit: cover;
-      filter: grayscale(20%) contrast(1.1);
+      filter: grayscale(5%) contrast(1.02);
       transition: filter 0.4s;
     }
     .project-card:hover .project-img { filter: grayscale(0%) contrast(1.1); }
@@ -585,7 +585,7 @@
     .blog-img {
       width: 100%; height: 180px;
       object-fit: cover;
-      filter: grayscale(30%);
+      filter: grayscale(0%);
       transition: filter 0.4s;
     }
     .blog-card:hover .blog-img { filter: grayscale(0%); }
@@ -608,7 +608,7 @@
 
     /* FREELANCE BANNER */
     .freelance-banner {
-      background: linear-gradient(135deg, #1a0e08 0%, #0f0e0d 100%);
+      background: linear-gradient(135deg, #fff5f0 0%, #f0f5ff 100%); border-top: 1px solid #ebe8e4; border-bottom: 1px solid #ebe8e4;
       border-top: 1px solid rgba(201,106,46,0.2);
       border-bottom: 1px solid rgba(201,106,46,0.2);
       padding: 5rem;
@@ -622,14 +622,14 @@
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       width: 600px; height: 300px;
-      background: radial-gradient(ellipse, rgba(201,106,46,0.1) 0%, transparent 70%);
+      background: none;
       pointer-events: none;
     }
     .freelance-banner h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 300;
-      color: var(--cream);
+      color: var(--ink);
       margin-bottom: 1rem;
       position: relative;
     }
@@ -689,8 +689,8 @@
     }
     .form-row input, .form-row textarea, .form-row select {
       width: 100%;
-      background: var(--bg2);
-      border: 1px solid var(--border);
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
       border-radius: 2px;
       padding: 0.85rem 1.1rem;
       font-family: 'Outfit', sans-serif;
@@ -969,7 +969,7 @@
     <h2 class="section-title">Education &<br><strong>Experience</strong></h2>
   </div>
   <div class="exp-grid">
-    <div class="exp-card reveal" style="border-color: rgba(201,106,46,0.3); background: linear-gradient(135deg, #1a1005 0%, var(--bg3) 100%);">
+    <div class="exp-card reveal" style="border-color: rgba(201,106,46,0.3); background: linear-gradient(135deg, #fff8f5 0%, var(--bg2) 100%);">
       <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap;">
         <div class="exp-type">Current Role</div>
         <span style="background:var(--accent); color:white; font-size:0.62rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:0.25rem 0.8rem; border-radius:20px; flex-shrink:0;">● Live</span>
