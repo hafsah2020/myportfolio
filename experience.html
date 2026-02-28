@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <title>Experience — Hafsah Anibaba</title>
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #ffffff; --bg2: #f7f7f7; --bg3: #f0f0f0;
+      --cream: #1a1a1a; --cream2: #333333;
+      --accent: #c96a2e; --accent2: #e8a060; --gold: #c8a84b;
+      --muted: #777777; --border: rgba(0,0,0,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--cream); overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: #fff; }
+    ::-webkit-scrollbar-thumb { background: var(--accent); }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 5rem;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--cream); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; font-size: 0.78rem; font-weight: 400; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.25s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--cream); }
+    .nav-back { border: 1px solid var(--border); padding: 0.45rem 1.2rem; border-radius: 2px; transition: all 0.2s !important; }
+    .nav-back:hover { border-color: var(--accent) !important; color: var(--accent) !important; }
+    .page-hero {
+      padding: 9rem 5rem 5rem;
+      border-bottom: 1px solid var(--border);
+      background: #f7f7f7;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background-image: linear-gradient(rgba(240,232,216,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(240,232,216,0.02) 1px, transparent 1px);
+      background-size: 60px 60px; pointer-events: none;
+    }
+    .page-hero-inner { position: relative; z-index: 1; }
+    .eyebrow { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; }
+    .eyebrow-line { width: 40px; height: 1px; background: var(--accent); }
+    .eyebrow-text { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
+    .page-hero h1 { color: #1a1a1a; font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 300; line-height: 1.1; }
+    .page-hero h1 strong { font-weight: 700; }
+    .page-hero h1 em { font-style: italic; color: var(--accent2); }
+    .page-hero p { color: var(--muted); font-size: 0.95rem; line-height: 1.75; max-width: 560px; margin-top: 1.2rem; }
+    .main { padding: 5rem; max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); font-weight: 500; margin-bottom: 3rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    footer {
+      background: var(--bg2); border-top: 1px solid var(--border);
+      padding: 2.5rem 5rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--cream); }
+    .footer-logo span { color: var(--accent); }
+    footer p { font-size: 0.78rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: 0.75rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--cream); }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 900px) {
+      nav { padding: 1rem 2rem; } .nav-links { display: none; }
+      .page-hero { padding: 7rem 2rem 3rem; } .main { padding: 3rem 2rem; }
+      footer { padding: 2rem; flex-direction: column; }
+    }
+
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 4rem; padding-left: 2rem;
+    }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -2.35rem; top: 0.4rem;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+      box-shadow: 0 0 0 3px rgba(201,106,46,0.2);
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .tl-type {
+      font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .tl-type::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+    .tl-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 3px; padding: 2.8rem;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .tl-card:hover { border-color: rgba(201,106,46,0.2); background: var(--bg3); }
+    .tl-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 600; color: var(--cream);
+      line-height: 1.2; margin-bottom: 0.4rem;
+    }
+    .tl-org { font-size: 0.85rem; color: var(--accent2); font-weight: 500; margin-bottom: 0.25rem; }
+    .tl-date { font-size: 0.75rem; color: var(--muted); margin-bottom: 1.8rem; }
+    .tl-points { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .tl-points li {
+      font-size: 0.85rem; color: var(--muted); line-height: 1.7;
+      padding-left: 1.3rem; position: relative;
+    }
+    .tl-points li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
+    .tl-points li strong { color: var(--cream2); font-weight: 500; }
+    .tl-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-top: 1.8rem; font-size: 0.78rem; color: var(--accent);
+      text-decoration: none; letter-spacing: 0.06em;
+      border-bottom: 1px solid transparent; transition: all 0.2s; padding-bottom: 1px;
+    }
+    .tl-link:hover { gap: 0.9rem; border-color: var(--accent); }
+    .highlight-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border); margin-bottom: 5rem;
+    }
+    .highlight {
+      background: #ffffff; padding: 2.2rem; text-align: center;
+      transition: background 0.3s;
+    }
+    .highlight:hover { background: var(--bg3); }
+    .highlight-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem; font-weight: 700; color: var(--accent); line-height: 1;
+    }
+    .highlight-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.5rem; }
+    @media (max-width: 900px) {
+      .timeline { padding-left: 1rem; }
+      .timeline-item { padding-left: 1.5rem; }
+      .highlight-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../hafsah-portfolio.html" class="nav-logo">Hafsah<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="../hafsah-portfolio.html#about">About</a></li>
+    <li><a href="../hafsah-portfolio.html#skills">Skills</a></li>
+    <li><a href="experience.html" id="exp-link">Experience</a></li>
+    <li><a href="education.html" id="edu-link">Education</a></li>
+    <li><a href="../hafsah-portfolio.html#projects">Projects</a></li>
+    <li><a href="../hafsah-freelance.html" class="nav-back">Freelance Services</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Track Record</span></div>
+    <h1>Experience &<br><strong>Leadership</strong></h1>
+    <p>From seismic interpretation at Oando to leading 3,200+ members as Google Developer Student Clubs Campus Lead — a proven record of impact.</p>
+  </div>
+</div>
+
+<main class="main">
+
+  <!-- HIGHLIGHTS -->
+  <div class="highlight-grid reveal" style="grid-template-columns: repeat(4,1fr);">
+    <div class="highlight" style="border-bottom: 2px solid var(--accent);"><div class="highlight-num" style="font-size:1.4rem; margin-bottom:0.2rem;">Current</div><div class="highlight-num">DEER</div><div class="highlight-label">Data Analyst · Nigeria</div></div>
+    <div class="highlight"><div class="highlight-num">184%</div><div class="highlight-label">Membership Growth — GDSC</div></div>
+    <div class="highlight"><div class="highlight-num">3,244</div><div class="highlight-label">Members Led at GDSC UNILAG</div></div>
+    <div class="highlight"><div class="highlight-num">37</div><div class="highlight-label">Events Organised in One Year</div></div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="section-label reveal">Professional & Leadership Timeline</div>
+  <div class="timeline">
+
+    <div class="timeline-item reveal">
+      <div class="tl-type">Current Role</div>
+      <div class="tl-card" style="border-color: rgba(201,106,46,0.3); background: linear-gradient(135deg, #fff8f5 0%, var(--bg2) 100%);">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:0.4rem;">
+          <h3 style="margin-bottom:0;">Data Analyst</h3>
+          <span style="background:var(--accent); color:white; font-size:0.65rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:20px; flex-shrink:0; margin-top:0.3rem;">Current Role</span>
+        </div>
+        <div class="tl-org">DEER Nigeria — Dependable Energy On Demand</div>
+        <div class="tl-date">Present · Nigeria</div>
+
+        <ul class="tl-points">
+          <li>Supporting <strong>KPI management</strong> — designing, tracking, and reporting on key performance indicators across the business</li>
+          <li>Driving <strong>data culture</strong> by championing data literacy and helping teams use data confidently in their daily decisions</li>
+          <li>Enabling <strong>data-driven strategy</strong> — translating raw data into insights for leadership decisions across gas, diesel, solar, electricity services and personalised energy resource management</li>
+          <li>Combining <strong>energy domain expertise</strong> with analytical skills to drive sustainable business growth</li>
+        </ul>
+        <a href="https://deernigeria.com/" target="_blank" class="tl-link">Visit DEER Nigeria →</a>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-type">Leadership</div>
+      <div class="tl-card">
+        <h3>Campus Lead</h3>
+        <div class="tl-org">Google Developer Student Clubs — University of Lagos</div>
+        <div class="tl-date">August 2023 – July 2024 · Lagos, Nigeria</div>
+        <ul class="tl-points">
+          <li>Expanded club membership by <strong>184%</strong> — growing from 1,141 to over <strong>3,244 members</strong></li>
+          <li>Increased physical events by <strong>217%</strong>, organising 37 events including 13 in-person activities</li>
+          <li>Launched impactful programs: industrial visits, career workshops, and community social events</li>
+          <li>Secured formal recognition from university authorities, facilitating campus resources and streamlining event organisation</li>
+        </ul>
+        <a href="https://medium.com/@hafsahoyin/my-journey-with-gdsc-unilag-fd513268cdf3?source=friends_link&sk=f797f89b84de6d2ab6969a8dae587d10" target="_blank" class="tl-link">Read the Full Story on Medium →</a>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-type">Leadership</div>
+      <div class="tl-card">
+        <h3>President</h3>
+        <div class="tl-org">Nigerian Mining and Geoscience Society — UNILAG Students Chapter</div>
+        <div class="tl-date">August 2023 – August 2024</div>
+        <ul class="tl-points">
+          <li>Coordinated UNILAG students for the NMGS-NAPE Mini-Conference, <strong>leading 50+ volunteers</strong> and securing sponsorships for student tickets</li>
+          <li>Organised HOD Games 2024 — managing logistics, fundraising, and publicity <strong>within a tight three-week window</strong></li>
+          <li>Resolved conflicts during Dean's Games negotiations, ultimately leading the department to <strong>win the football tournament</strong></li>
+          <li>Organised Career Day 2024, overcoming scheduling challenges to secure high student turnout</li>
+          <li>Achieved <strong>80% voter turnout</strong> through Games Nights, securing a faculty representative position</li>
+        </ul>
+        <a href="https://medium.com/@hafsahoyin/my-leadership-journey-as-the-nmgs-president-0b22600d3e58?source=friends_link&sk=9f2cbe27bdbb6ce1f08b406264dd9498" target="_blank" class="tl-link">Read the Full Story on Medium →</a>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-type">Industry Experience</div>
+      <div class="tl-card">
+        <h3>Intern Geophysicist</h3>
+        <div class="tl-org">Oando Energy Resources</div>
+        <div class="tl-date">February – July 2023</div>
+        <ul class="tl-points">
+          <li>Identified faults and horizons in seismic data using <strong>Petrel software</strong></li>
+          <li>Quantitatively analysed well log data (GR, LLD, NPHI, RHOB) to estimate porosity, permeability, fluid saturation, and reservoir properties using <strong>Python</strong></li>
+          <li>Created depth-pressure data to identify free water levels and oil-water contacts, deriving hydrocarbon zone characteristics</li>
+          <li>Correlated sand bodies across multiple wells, identifying structural and stratigraphic traps for reservoir characterization</li>
+        </ul>
+        <a href="https://sites.google.com/view/hafsahanibabait" target="_blank" class="tl-link">Read Full Account →</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+<footer>
+  <div>
+    <div class="footer-logo">Hafsah<span>.</span></div>
+    <p style="margin-top:0.4rem;">Data Scientist · Geophysicist · Lagos, Nigeria</p>
+  </div>
+  <div class="footer-links">
+    <a href="../hafsah-portfolio.html">Portfolio</a>
+    <a href="experience.html">Experience</a>
+    <a href="education.html">Education</a>
+    <a href="https://betaedge.netlify.app/" target="_blank">BetaEdge</a>
+    <a href="mailto:hafsahoyin@gmail.com">Email</a>
+  </div>
+  <p>© 2025 Hafsah Anibaba</p>
+</footer>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); } });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+<script>document.getElementById('exp-link') && (document.getElementById('exp-link').classList.add('active'));</script>
+</body>
+</html>
