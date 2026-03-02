@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Automated KPI Report Generator – Ralia Case Study</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0f0f;
+    --mist: #f4f2ee;
+    --accent: #c8642a;
+    --accent2: #1a3a2e;
+    --light: #faf9f6;
+    --border: rgba(15,15,15,0.1);
+    --serif: 'DM Serif Display', serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: var(--light);
+    color: var(--ink);
+    overflow: hidden;
+  }
+
+  /* ── Deck wrapper ── */
+  .deck {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 520px;
+  }
+
+  /* ── Slides ── */
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(2rem, 6vw, 5rem) clamp(2rem, 8vw, 7rem);
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity .45s ease, transform .45s ease;
+    pointer-events: none;
+  }
+  .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+  .slide.exit {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  /* Slide 1 – Hero */
+  .slide-1 { background: var(--accent2); color: #fff; }
+  .slide-1 .overline { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; opacity: .6; margin-bottom: 1rem; }
+  .slide-1 h1 { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.1; margin-bottom: 1rem; }
+  .slide-1 h1 em { color: #f0c98a; font-style: normal; }
+  .slide-1 p { font-size: clamp(.9rem, 1.8vw, 1.1rem); opacity: .75; max-width: 36ch; line-height: 1.7; }
+
+  /* Slide 2 – Client */
+  .slide-2 { background: var(--mist); }
+
+  /* Slide 3 – Challenge */
+  .slide-3 { background: #fdf6f0; }
+
+  /* Slide 4 – Vision */
+  .slide-4 { background: var(--accent2); color: #fff; }
+
+  /* Slide 5 – KPIs */
+  .slide-5 { background: var(--light); }
+
+  /* Slide 6 – Data Capture */
+  .slide-6 { background: var(--mist); }
+
+  /* Slide 7 – Automating */
+  .slide-7 { background: var(--ink); color: #fff; }
+
+  /* Slide 8 – Reports */
+  .slide-8 { background: #fdf6f0; }
+
+  /* Slide 9 – Results */
+  .slide-9 { background: var(--accent2); color: #fff; }
+
+  /* Slide 10 – Future */
+  .slide-10 { background: var(--mist); }
+
+  /* Slide 11 – CTA */
+  .slide-11 { background: var(--accent); color: #fff; }
+
+  /* ── Shared slide type styles ── */
+  .tag {
+    display: inline-block;
+    font-size: .68rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: .25rem .7rem;
+    border-radius: 2rem;
+    margin-bottom: 1.2rem;
+  }
+  .tag-orange { background: #f0c98a33; color: var(--accent); }
+  .tag-green  { background: rgba(255,255,255,.15); color: #f0c98a; }
+  .tag-dark   { background: rgba(255,255,255,.1); color: #aef2d0; }
+  .tag-light  { background: var(--accent2); color: #aef2d0; }
+
+  .slide-title {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .slide-title em { font-style: italic; }
+
+  .slide-body {
+    font-size: clamp(.85rem, 1.5vw, 1rem);
+    line-height: 1.8;
+    max-width: 55ch;
+    opacity: .85;
+  }
+
+  /* Two-column layout */
+  .cols { display: flex; gap: 3rem; align-items: flex-start; }
+  .col-text { flex: 1; }
+  .col-visual { flex: 0 0 auto; width: clamp(140px, 28%, 220px); }
+
+  /* Illustration box */
+  .illus {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: 2.8rem;
+  }
+  .illus-green { background: rgba(255,255,255,.12); }
+  .illus-mist  { background: rgba(15,15,15,.06); }
+  .illus-orange{ background: rgba(200,100,42,.12); }
+  .illus-dark  { background: rgba(255,255,255,.06); }
+
+  /* KPI chips */
+  .kpi-grid { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.2rem; }
+  .kpi-chip {
+    font-size: .78rem; font-weight: 500;
+    padding: .4rem 1rem;
+    border-radius: 2rem;
+    border: 1px solid var(--border);
+    background: #fff;
+  }
+
+  /* Result list */
+  .result-list { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: .7rem; }
+  .result-list li { display: flex; align-items: flex-start; gap: .75rem; font-size: clamp(.8rem, 1.4vw, .95rem); line-height: 1.6; }
+  .result-list li::before {
+    content: '✓'; flex-shrink: 0;
+    width: 1.5rem; height: 1.5rem;
+    background: rgba(255,255,255,.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .75rem; margin-top: .1rem;
+  }
+
+  /* Flow diagram */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    margin-top: 1.4rem;
+    flex-wrap: wrap;
+  }
+  .flow-step {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: .5rem;
+    padding: .55rem 1rem;
+    font-size: .78rem;
+    font-weight: 500;
+    text-align: center;
+  }
+  .flow-arrow { font-size: 1.1rem; opacity: .4; }
+
+  /* Mini bar chart */
+  .chart { margin-top: 1.4rem; display: flex; flex-direction: column; gap: .5rem; }
+  .bar-row { display: flex; align-items: center; gap: .8rem; font-size: .78rem; }
+  .bar-label { width: 8ch; text-align: right; opacity: .7; flex-shrink: 0; }
+  .bar-track { flex: 1; background: rgba(255,255,255,.1); border-radius: .2rem; height: .9rem; overflow: hidden; }
+  .bar-fill  { height: 100%; border-radius: .2rem; background: #f0c98a; }
+
+  /* CTA buttons */
+  .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.8rem; }
+  .btn {
+    padding: .75rem 1.8rem;
+    border-radius: 2rem;
+    font-family: var(--sans);
+    font-size: .88rem; font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+  .btn-white { background: #fff; color: var(--accent); border: none; }
+  .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.5); }
+
+  /* ── Navigation ── */
+  .nav {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .9rem clamp(1.5rem, 5vw, 4rem);
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border);
+    z-index: 100;
+  }
+  .nav-dots { display: flex; gap: .4rem; }
+  .nav-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: background .3s, transform .3s;
+  }
+  .nav-dot.active { background: var(--accent2); transform: scale(1.4); }
+  .nav-btn {
+    background: none; border: 1.5px solid var(--border);
+    border-radius: 2rem; padding: .45rem 1.2rem;
+    font-family: var(--sans); font-size: .8rem; font-weight: 500;
+    cursor: pointer; transition: all .2s; color: var(--ink);
+  }
+  .nav-btn:hover:not(:disabled) { border-color: var(--accent2); color: var(--accent2); }
+  .nav-btn:disabled { opacity: .3; cursor: default; }
+  .slide-counter { font-size: .75rem; font-weight: 600; color: var(--ink); opacity: .5; min-width: 3.5ch; text-align: center; }
+
+  /* progress bar */
+  .progress {
+    position: fixed; top: 0; left: 0;
+    height: 3px; background: var(--accent);
+    transition: width .4s ease;
+    z-index: 200;
+  }
+
+  /* keyboard hint */
+  .hint { position: fixed; top: 1rem; right: 1rem; font-size: .65rem; opacity: .35; z-index: 100; }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="hint">← → or click to navigate</div>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1 -->
+  <div class="slide slide-1 active">
+    <div class="overline">Case Study · KPI Automation</div>
+    <h1>Automated KPI Reports<br>for <em>Small Businesses</em></h1>
+    <p>Helping business owners track profits, expenses, and growth — effortlessly and automatically.</p>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide slide-2">
+    <div class="cols">
+      <div class="col-text">
+        <span class="tag tag-light">Meet the Client</span>
+        <h2 class="slide-title">Meet Ralia:<br><em>A One-Person<br>Tailoring Business</em></h2>
+        <p class="slide-body">Ralia is a solo tailor who loves sewing but hates bookkeeping. Each month, hours were wasted summing up sales, calculating profits, and tracking expenses. Decisions were guesswork, and growth felt uncertain.</p>
+      </div>
+      <div class="col-visual">
+        <div class="illus illus-mist">
+          <span>🧵</span>
+          <span style="font-size:.75rem;font-weight:600;opacity:.5">Solo Tailor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide slide-3">
+    <span class="tag tag-orange">The Challenge</span>
+    <h2 class="slide-title">Manual Tracking<br>Was Costing Her</h2>
+    <p class="slide-body">Sales data was scattered across spreadsheets and handwritten notes. Manual tracking caused mistakes. Time was lost, opportunities missed — and it was impossible to know which products or clients brought the most value.</p>
+    <div class="flow" style="margin-top:1.8rem;">
+      <div class="flow-step">Messy Notes</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">Manual Sums</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">Errors</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">Lost Time</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 -->
+  <div class="slide slide-4">
+    <span class="tag tag-green">The Vision</span>
+    <h2 class="slide-title" style="color:#fff;">Imagine a <em>Clear Picture</em><br>of Your Business</h2>
+    <p class="slide-body">Know at a glance which products are most profitable, which clients keep coming back, and how expenses impact your bottom line — without hours of calculations. Turning messy data into actionable insights.</p>
+  </div>
+
+  <!-- SLIDE 5 -->
+  <div class="slide slide-5">
+    <span class="tag tag-light">KPIs That Matter</span>
+    <h2 class="slide-title">Goals Turned Into<br><em>Measurable KPIs</em></h2>
+    <p class="slide-body">We translated Ralia's business goals into a clear set of metrics — the story of her business, easy to track every month.</p>
+    <div class="kpi-grid">
+      <span class="kpi-chip">💰 Total Revenue &amp; Profit</span>
+      <span class="kpi-chip">🏆 Top Products &amp; Services</span>
+      <span class="kpi-chip">🔁 Repeat vs One-Time Clients</span>
+      <span class="kpi-chip">📊 Expenses by Category</span>
+      <span class="kpi-chip">📱 Social Media Engagement</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 6 -->
+  <div class="slide slide-6">
+    <span class="tag tag-light">Data Capture</span>
+    <h2 class="slide-title">Making Data Capture<br><em>a Habit, Not a Chore</em></h2>
+    <p class="slide-body">Ralia now records daily sales and expenses through simple forms or Excel templates. Social media interactions are tracked weekly. The system is effortless — reliable insights start with consistent inputs.</p>
+    <div class="flow" style="margin-top:1.8rem;">
+      <div class="flow-step">📋 Simple Form</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">📁 Excel Sheet</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">🤖 System</div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">☁️ Google Sheet</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7 -->
+  <div class="slide slide-7">
+    <span class="tag tag-dark">Automation</span>
+    <h2 class="slide-title" style="color:#fff;">From Raw Data to<br><em>Actionable Insights</em></h2>
+    <p class="slide-body" style="opacity:.65;">Python scripts automatically merge and clean all captured data. Monthly KPIs are calculated, charts generated, and everything stored in a central Google Sheet. No more guesswork.</p>
+    <div class="chart">
+      <div class="bar-row"><span class="bar-label">Jan</span><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div></div>
+      <div class="bar-row"><span class="bar-label">Feb</span><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div></div>
+      <div class="bar-row"><span class="bar-label">Mar</span><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div></div>
+      <div class="bar-row"><span class="bar-label">Apr</span><div class="bar-track"><div class="bar-fill" style="width:91%"></div></div></div>
+    </div>
+  </div>
+
+  <!-- SLIDE 8 -->
+  <div class="slide slide-8">
+    <span class="tag tag-orange">Reporting</span>
+    <h2 class="slide-title">Visual Reports That Make<br><em>Decisions Easy</em></h2>
+    <p class="slide-body">Every month Ralia receives a full picture of her business through interactive Looker Studio dashboards.</p>
+    <div class="kpi-grid" style="margin-top:1.4rem;">
+      <span class="kpi-chip">📈 Revenue &amp; Profit Trends</span>
+      <span class="kpi-chip">🏅 Top Products &amp; Services</span>
+      <span class="kpi-chip">💸 Expense Summaries</span>
+      <span class="kpi-chip">🤝 Repeat Customer Insights</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 9 -->
+  <div class="slide slide-9">
+    <span class="tag tag-green">Results</span>
+    <h2 class="slide-title" style="color:#fff;">The Difference Made</h2>
+    <ul class="result-list">
+      <li>Reports now generate in under 5 minutes</li>
+      <li>Data errors completely eliminated</li>
+      <li>Top products and loyal customers easily identified</li>
+      <li>Time freed to focus on clients and growth</li>
+      <li>Scalable across multiple products or locations</li>
+    </ul>
+  </div>
+
+  <!-- SLIDE 10 -->
+  <div class="slide slide-10">
+    <span class="tag tag-light">What's Next</span>
+    <h2 class="slide-title">Future Upgrades<br><em>for Ralia</em></h2>
+    <p class="slide-body">The system grows as the business grows.</p>
+    <div class="kpi-grid" style="margin-top:1.4rem;">
+      <span class="kpi-chip">🎛️ Interactive Dashboards</span>
+      <span class="kpi-chip">🔔 Automated KPI Alerts</span>
+      <span class="kpi-chip">💬 NLP Queries</span>
+      <span class="kpi-chip">📡 Predictive Forecasting</span>
+    </div>
+  </div>
+
+  <!-- SLIDE 11 -->
+  <div class="slide slide-11">
+    <span class="tag" style="background:rgba(255,255,255,.2);color:#fff;">Get Started</span>
+    <h2 class="slide-title" style="color:#fff;">Your Business<br>Deserves Clarity</h2>
+    <p class="slide-body">You don't have to guess which products or clients drive your profit. Let me help you build an automated KPI system that tracks your sales, expenses, and growth — effortlessly.</p>
+    <div class="btn-row">
+      <a href="https://wa.me/2349035131946" class="btn btn-white">WhatsApp Me</a>
+      <a href="mailto:hafsahanibaba@gmail.com" class="btn btn-outline">Email Me</a>
+    </div>
+  </div>
+
+</div><!-- /.deck -->
+
+<!-- ── Nav ── -->
+<nav class="nav">
+  <button class="nav-btn" id="btnPrev" disabled>← Prev</button>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <div class="nav-dots" id="dots"></div>
+    <span class="slide-counter" id="counter">1 / 11</span>
+  </div>
+  <button class="nav-btn" id="btnNext">Next →</button>
+</nav>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.getElementById('dots');
+  const counter= document.getElementById('counter');
+  const btnPrev= document.getElementById('btnPrev');
+  const btnNext= document.getElementById('btnNext');
+  const progress=document.getElementById('progress');
+  const total  = slides.length;
+  let current  = 0;
+
+  // Build dots
+  slides.forEach((_,i) => {
+    const d = document.createElement('div');
+    d.className = 'nav-dot' + (i===0?' active':'');
+    d.addEventListener('click',()=>goTo(i));
+    dots.appendChild(d);
+  });
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    slides[current].classList.add('exit');
+    setTimeout(()=>{ slides[current].classList.remove('exit'); current=n; activate(); }, 420);
+  }
+
+  function activate() {
+    slides[current].classList.add('active');
+    document.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active',i===current));
+    counter.textContent = `${current+1} / ${total}`;
+    btnPrev.disabled = current === 0;
+    btnNext.disabled = current === total-1;
+    progress.style.width = `${((current+1)/total)*100}%`;
+  }
+
+  btnNext.addEventListener('click',()=>{ if(current<total-1) goTo(current+1); });
+  btnPrev.addEventListener('click',()=>{ if(current>0) goTo(current-1); });
+
+  document.addEventListener('keydown', e => {
+    if(e.key==='ArrowRight'||e.key==='ArrowDown') { if(current<total-1) goTo(current+1); }
+    if(e.key==='ArrowLeft' ||e.key==='ArrowUp')   { if(current>0)       goTo(current-1); }
+  });
+
+  // Touch swipe
+  let sx=0;
+  document.addEventListener('touchstart',e=>{ sx=e.touches[0].clientX; });
+  document.addEventListener('touchend',e=>{
+    const dx = e.changedTouches[0].clientX - sx;
+    if(Math.abs(dx)>50){ if(dx<0&&current<total-1) goTo(current+1); else if(dx>0&&current>0) goTo(current-1); }
+  });
+
+  activate();
+</script>
+</body>
+</html>
