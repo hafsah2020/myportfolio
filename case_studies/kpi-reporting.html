@@ -225,6 +225,14 @@
   @media (max-width: 400px) {
     .nav-btn { padding: .32rem .7rem; }
   }
+
+     /* FOOTER */
+    footer { background: #1a1a1a; color: rgba(255,255,255,0.5); padding: 2rem clamp(1.5rem, 5vw, 4rem); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; color: #fff; font-size: 1rem; font-weight: 700; }
+    footer p { font-size: 0.8rem; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.8rem; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
 </style>
 </head>
 <body>
@@ -373,6 +381,21 @@
   </div>
   <button class="nav-btn" id="btnNext">Next →</button>
 </nav>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Hafsah Anibaba</div>
+    <p style="margin-top:0.3rem;">Data Analyst · Nigeria</p>
+  </div>
+  <div class="footer-links">
+    <a href="hafsah-portfolio.html">Portfolio</a>
+    <a href="https://betaedge.netlify.app/" target="_blank" rel="noopener">BetaEdge</a>
+    <a href="/cdn-cgi/l/email-protection#bdd5dcdbcedcd5dcd3d4dfdcdfdcfddad0dcd4d193ded2d0">Email</a>
+  </div>
+  <p>© 2025 Hafsah Anibaba</p>
+</footer>
+
 
 <script>
   const slides  = document.querySelectorAll('.slide');
