@@ -18,29 +18,32 @@
     --serif: 'DM Serif Display', serif;
     --sans: 'DM Sans', sans-serif;
     --nav-h: 56px;
+    --footer-h: 60px;
   }
 
-  html, body { height: 100%; }
+  html, body { height: 100%; overflow: hidden; }
 
   body {
     font-family: var(--sans);
     background: var(--light);
     color: var(--ink);
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   /* ── Progress bar ── */
   .progress {
     position: fixed; top: 0; left: 0;
     height: 3px; background: var(--accent);
-    transition: width .4s ease; z-index: 200;
+    transition: width .4s ease; z-index: 300;
   }
 
-  /* ── Deck ── */
+  /* ── Deck fills space between nav and footer ── */
   .deck {
     position: fixed;
-    top: 0; left: 0; right: 0;
-    bottom: var(--nav-h);
+    top: 0;
+    left: 0; right: 0;
+    bottom: calc(var(--nav-h) + var(--footer-h));
     overflow: hidden;
   }
 
@@ -102,11 +105,10 @@
     line-height: 1.8; max-width: 56ch; opacity: .85;
   }
 
-  /* ── Two-col layout (collapses on small screens) ── */
+  /* ── Two-col layout ── */
   .cols { display: flex; gap: clamp(1.5rem, 4vw, 3rem); align-items: flex-start; }
   .col-text { flex: 1; min-width: 0; }
   .col-visual { flex: 0 0 clamp(100px, 22%, 200px); }
-
   .illus {
     width: 100%; aspect-ratio: 1; border-radius: 1rem;
     display: flex; flex-direction: column; align-items: center;
@@ -127,8 +129,8 @@
   .flow { display: flex; align-items: center; gap: .4rem; margin-top: 1.2rem; flex-wrap: wrap; }
   .flow-step {
     background: #fff; border: 1px solid var(--border); border-radius: .5rem;
-    padding: .45rem .85rem; font-size: clamp(.68rem, 1.1vw, .78rem); font-weight: 500; text-align: center;
-    color: var(--ink);
+    padding: .45rem .85rem; font-size: clamp(.68rem, 1.1vw, .78rem); font-weight: 500;
+    text-align: center; color: var(--ink);
   }
   .flow-arrow { font-size: 1rem; opacity: .4; color: var(--ink); }
 
@@ -166,13 +168,15 @@
   .btn-white   { background: #fff; color: var(--accent); border: none; }
   .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.5); }
 
-  /* ── Bottom nav ── */
+  /* ── Bottom nav bar ── */
   .nav {
-    position: fixed; bottom: 0; left: 0; right: 0;
+    position: fixed;
+    bottom: var(--footer-h);
+    left: 0; right: 0;
     height: var(--nav-h);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 clamp(1rem, 4vw, 2.5rem);
-    background: rgba(255,255,255,.95);
+    background: rgba(255,255,255,.97);
     backdrop-filter: blur(10px);
     border-top: 1px solid var(--border);
     z-index: 100;
@@ -188,12 +192,30 @@
     background: none; border: 1.5px solid var(--border);
     border-radius: 2rem; padding: .38rem 1rem;
     font-family: var(--sans); font-size: clamp(.7rem,1vw,.8rem); font-weight: 500;
-    cursor: pointer; transition: all .2s; color: var(--ink);
-    white-space: nowrap;
+    cursor: pointer; transition: all .2s; color: var(--ink); white-space: nowrap;
   }
   .nav-btn:hover:not(:disabled) { border-color: var(--accent2); color: var(--accent2); }
   .nav-btn:disabled { opacity: .3; cursor: default; }
   .slide-counter { font-size: .72rem; font-weight: 600; opacity: .45; min-width: 3ch; text-align: center; }
+
+  /* ── Footer ── */
+  footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: var(--footer-h);
+    background: #1a1a1a;
+    color: rgba(255,255,255,0.5);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    flex-wrap: nowrap; gap: 1rem;
+    z-index: 100;
+  }
+  .footer-left { display: flex; align-items: center; gap: 1rem; }
+  .footer-logo { font-family: 'Playfair Display', serif; color: #fff; font-size: .9rem; font-weight: 700; white-space: nowrap; }
+  footer p { font-size: 0.72rem; white-space: nowrap; }
+  .footer-links { display: flex; gap: 1.2rem; flex-wrap: nowrap; }
+  .footer-links a { font-size: 0.72rem; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.2s; white-space: nowrap; }
+  .footer-links a:hover { color: #fff; }
 
   /* ── Back link ── */
   .back-link {
@@ -212,27 +234,22 @@
     font-size: .6rem; opacity: .3; z-index: 200; pointer-events: none;
   }
 
-  /* ── MOBILE tweaks ── */
+  /* ── Mobile ── */
   @media (max-width: 600px) {
+    :root { --footer-h: 48px; }
     .cols { flex-direction: column; }
     .col-visual { display: none; }
     .hint { display: none; }
     .flow { gap: .3rem; }
     .flow-step { padding: .35rem .6rem; }
     .nav-dots { display: none; }
+    .footer-links { gap: .8rem; }
   }
 
   @media (max-width: 400px) {
     .nav-btn { padding: .32rem .7rem; }
+    footer p { display: none; }
   }
-
-     /* FOOTER */
-    footer { background: #1a1a1a; color: rgba(255,255,255,0.5); padding: 2rem clamp(1.5rem, 5vw, 4rem); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-logo { font-family: 'Playfair Display', serif; color: #fff; font-size: 1rem; font-weight: 700; }
-    footer p { font-size: 0.8rem; }
-    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .footer-links a { font-size: 0.8rem; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: #fff; }
 </style>
 </head>
 <body>
@@ -241,6 +258,7 @@
 <a class="back-link" href="javascript:history.back()">← Back</a>
 <div class="hint">← → or swipe</div>
 
+<!-- SLIDES -->
 <div class="deck" id="deck">
 
   <!-- SLIDE 1 -->
@@ -372,30 +390,28 @@
 
 </div><!-- /.deck -->
 
-<!-- BOTTOM NAV -->
+<!-- NAV BAR (sits above footer) -->
 <nav class="nav">
   <button class="nav-btn" id="btnPrev" disabled>← Prev</button>
   <div style="display:flex;align-items:center;gap:.8rem;">
     <div class="nav-dots" id="dots"></div>
-    <span class="slide-counter" id="counter">1 / 11</span>
+    <span class="slide-counter" id="counter">1 / 10</span>
   </div>
   <button class="nav-btn" id="btnNext">Next →</button>
 </nav>
 
-<!-- FOOTER -->
+<!-- FOOTER (fixed at very bottom) -->
 <footer>
-  <div>
-    <div class="footer-logo">Hafsah Anibaba</div>
-    <p style="margin-top:0.3rem;">Data Analyst · Nigeria</p>
+  <div class="footer-left">
+    <span class="footer-logo">Hafsah Anibaba</span>
+    <p>Data Analyst · Nigeria</p>
   </div>
   <div class="footer-links">
     <a href="hafsah-portfolio.html">Portfolio</a>
     <a href="https://betaedge.netlify.app/" target="_blank" rel="noopener">BetaEdge</a>
-    <a href="/cdn-cgi/l/email-protection#bdd5dcdbcedcd5dcd3d4dfdcdfdcfddad0dcd4d193ded2d0">Email</a>
+    <a href="mailto:hafsahanibaba@gmail.com">Email</a>
   </div>
-  <p>© 2025 Hafsah Anibaba</p>
 </footer>
-
 
 <script>
   const slides  = document.querySelectorAll('.slide');
@@ -408,7 +424,6 @@
   let current   = 0;
   let animating = false;
 
-  // Build dots
   slides.forEach((_,i) => {
     const d = document.createElement('div');
     d.className = 'nav-dot' + (i===0?' active':'');
@@ -442,15 +457,12 @@
   btnNext.addEventListener('click', () => { if (current < total-1) goTo(current+1); });
   btnPrev.addEventListener('click', () => { if (current > 0) goTo(current-1); });
 
-  // Keyboard
   document.addEventListener('keydown', e => {
     if (e.key==='ArrowRight'||e.key==='ArrowDown') { if(current<total-1) goTo(current+1); }
     if (e.key==='ArrowLeft' ||e.key==='ArrowUp')   { if(current>0)       goTo(current-1); }
   });
 
-  // Touch / swipe
-  let touchStartX = 0;
-  let touchStartY = 0;
+  let touchStartX = 0, touchStartY = 0;
   document.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
