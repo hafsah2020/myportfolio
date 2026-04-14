@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lagos Shoemaker Case Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #faf9f7; --ink: #1a1714; --muted: #6b6560; --accent: #c17f3a;
+    --accent-light: #f5ede0; --divider: #e5e0d8; --tag-bg: #f0ece4;
+    --card-bg: #ffffff; --serif: 'Playfair Display', Georgia, serif; --sans: 'DM Sans', sans-serif;
+  }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.7; min-height: 100vh; }
+  .page { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 6rem; }
+  .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: var(--muted); text-decoration: none; font-weight: 500; letter-spacing: 0.02em; margin-bottom: 2.5rem; transition: color 0.2s; }
+  .back-link:hover { color: var(--accent); }
+  .back-link svg { width: 14px; height: 14px; }
+  .meta-row { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+  .tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--tag-bg); color: var(--muted); padding: 0.25rem 0.7rem; border-radius: 2px; }
+  .tag.simulated { background: transparent; border: 1px solid var(--divider); color: var(--muted); font-style: italic; text-transform: none; letter-spacing: 0; font-weight: 400; }
+  h1 { font-family: var(--serif); font-size: clamp(2rem, 5vw, 2.9rem); font-weight: 700; line-height: 1.2; color: var(--ink); margin-bottom: 1rem; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .subtitle { font-size: 1.05rem; color: var(--muted); margin-bottom: 2rem; max-width: 580px; }
+  .profile-pills { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--divider); }
+  .pill { font-size: 0.85rem; color: var(--ink); font-weight: 500; }
+  .pill span { color: var(--muted); margin-right: 0.3rem; }
+  .section { margin-bottom: 3.5rem; }
+  .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+  h2 { font-family: var(--serif); font-size: clamp(1.4rem, 3.5vw, 1.9rem); font-weight: 700; line-height: 1.25; margin-bottom: 1.2rem; color: var(--ink); }
+  h2 em { font-style: italic; color: var(--accent); }
+  p { margin-bottom: 1rem; color: #2e2b27; }
+  ul.story-list { list-style: none; padding: 0; margin: 1rem 0; }
+  ul.story-list li { padding: 0.45rem 0 0.45rem 1.4rem; position: relative; color: #2e2b27; border-bottom: 1px solid var(--divider); }
+  ul.story-list li:last-child { border-bottom: none; }
+  ul.story-list li::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .problem-cards { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1rem; }
+  .problem-card { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 1.2rem; background: var(--card-bg); border: 1px solid var(--divider); border-left: 3px solid var(--accent); border-radius: 4px; }
+  .problem-num { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; width: 24px; }
+  .problem-body strong { display: block; font-weight: 600; margin-bottom: 0.2rem; color: var(--ink); }
+  .problem-body p { margin: 0; font-size: 0.92rem; color: var(--muted); }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 1.2rem 0; }
+  .stat-card { background: var(--accent-light); border-radius: 6px; padding: 1rem 1.1rem; }
+  .stat-card .number { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 0.3rem; }
+  .stat-card .label { font-size: 0.82rem; color: var(--muted); font-weight: 500; }
+  ul.outcome-list { list-style: none; padding: 0; margin: 1rem 0; }
+  ul.outcome-list li { display: flex; align-items: flex-start; gap: 0.7rem; padding: 0.5rem 0; border-bottom: 1px solid var(--divider); font-size: 0.95rem; color: #2e2b27; }
+  ul.outcome-list li:last-child { border-bottom: none; }
+  ul.outcome-list li .icon { color: var(--accent); font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .callout { background: var(--ink); color: #f5f0e8; border-radius: 6px; padding: 1.8rem 2rem; margin: 2rem 0; }
+  .callout p { color: #f5f0e8; margin: 0; font-size: 1rem; }
+  .callout strong { color: var(--accent); }
+  .applies-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+  .applies-card { background: var(--card-bg); border: 1px solid var(--divider); border-radius: 6px; padding: 1rem 1.2rem; }
+  .applies-card h4 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+  .applies-card ul { list-style: none; padding: 0; }
+  .applies-card ul li { font-size: 0.9rem; color: var(--ink); padding: 0.2rem 0; font-weight: 500; }
+  .bottom-line { background: var(--accent-light); border-radius: 6px; padding: 1.4rem 1.6rem; border-left: 4px solid var(--accent); margin: 2rem 0; }
+  .bottom-line p { margin: 0; font-size: 1rem; font-weight: 500; color: var(--ink); }
+  .cta-section { text-align: center; padding: 3rem 1.5rem; background: var(--card-bg); border: 1px solid var(--divider); border-radius: 8px; margin-top: 3rem; }
+  .cta-section h2 { font-size: 1.6rem; margin-bottom: 0.8rem; }
+  .cta-section p { color: var(--muted); max-width: 440px; margin: 0 auto 1.8rem; font-size: 0.95rem; }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.4rem; border-radius: 4px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; font-family: var(--sans); }
+  .btn-primary { background: var(--accent); color: white; }
+  .btn-primary:hover { background: #a86c2d; }
+  .btn-secondary { background: transparent; border: 1.5px solid var(--accent); color: var(--accent); }
+  .btn-secondary:hover { background: var(--accent-light); }
+  .btn-ghost { background: transparent; border: 1.5px solid var(--divider); color: var(--ink); font-size: 0.85rem; padding: 0.55rem 1.1rem; }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-ghost svg { width: 13px; height: 13px; flex-shrink: 0; }
+  .footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--divider); display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--ink); }
+  .footer-role { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+  .footer-links { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; }
+  .footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-copy { width: 100%; font-size: 0.75rem; color: var(--divider); margin-top: 0.5rem; }
+  @media (max-width: 500px) { .stat-grid, .applies-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a href="javascript:history.back()" class="back-link">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg>
+    Back
+  </a>
+
+  <div class="meta-row">
+    <span class="tag">Case Study</span>
+    <span class="tag">Fashion &amp; Footwear</span>
+    <span class="tag simulated">Simulated Case Study</span>
+  </div>
+
+  <h1>How a Lagos Shoemaker Cut Losses from <em>Material Delays and Wrong Sizes</em></h1>
+  <p class="subtitle">A data dashboard built from everyday business records — revealing where money was leaking and making it stop.</p>
+
+  <div class="profile-pills">
+    <div class="pill"><span>🧵</span> Custom Shoemaker</div>
+    <div class="pill"><span>📍</span> Lagos, Nigeria</div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Reality</div>
+    <h2>On the Surface, Business Was <em>Fine</em></h2>
+    <p>A shoemaker in Lagos runs a small but steady business — taking custom orders weekly.</p>
+    <ul class="story-list">
+      <li>Orders are coming in</li>
+      <li>Customers are paying</li>
+      <li>Production is ongoing</li>
+    </ul>
+    <p style="margin-top:1rem;">But behind the scenes, money is leaking.</p>
+    <ul class="story-list">
+      <li>Materials (leather, soles) are not always available at the market</li>
+      <li>Urgent market runs delay production and increase costs</li>
+      <li>Customers often request the wrong size</li>
+      <li>Adjustments cost about ₦2,000 per pair and waste materials</li>
+    </ul>
+    <p style="margin-top:1rem;">At the end of the month, profit is lower than expected — but it's not clear why.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Problem</div>
+    <h2>Three Issues Draining the <em>Business</em></h2>
+    <div class="problem-cards">
+      <div class="problem-card">
+        <div class="problem-num">1</div>
+        <div class="problem-body">
+          <strong>Unplanned Material Shortages</strong>
+          <p>No system to track which materials run out fastest or when to restock.</p>
+        </div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">2</div>
+        <div class="problem-body">
+          <strong>Frequent Sizing Errors</strong>
+          <p>No record of which sizes or shoe types lead to the most complaints or adjustments.</p>
+        </div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">3</div>
+        <div class="problem-body">
+          <strong>No Visibility into Losses</strong>
+          <p>Costs from delays and rework are not tracked, so decisions are based on guesswork.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Approach</div>
+    <h2>A Simple Dashboard Built on <em>Real Data</em></h2>
+    <p>I built a simple dashboard that uses everyday business data to show what's really happening. The shoemaker only needed to track:</p>
+    <ul class="story-list">
+      <li>Sales — shoe type, size requested, final fit, complaints</li>
+      <li>Materials used</li>
+      <li>Market trips and delays</li>
+    </ul>
+    <p style="margin-top:1rem;">No complex setup. Just structured records.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">What the Dashboard Reveals</div>
+    <h2>After Analysing <em>300 Sales</em></h2>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="number">₦50k</div>
+        <div class="label">lost per month from delayed or unavailable materials</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">18%</div>
+        <div class="label">sizing error rate in women's heels</div>
+      </div>
+    </div>
+
+    <ul class="story-list">
+      <li>High adjustment frequency on specific sizes (e.g. EU 41–42)</li>
+      <li>Certain materials running out consistently before others</li>
+    </ul>
+    <p style="margin-top:1rem;">For the first time, the shoemaker could see exactly where the money was going.</p>
+
+    <a href="https://hafsahanibaba.netlify.app/" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-top:0.8rem;">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="10" height="10" rx="1"/><path d="M10 1h3v3M13 1L7 7"/></svg>
+      View the Dashboard
+    </a>
+  </div>
+
+  <div class="section">
+    <div class="section-label">What Changed</div>
+    <h2>Decisions Based on <em>Evidence</em></h2>
+    <ul class="story-list">
+      <li>Stocked more of high-demand sizes (EU 41)</li>
+      <li>Reduced production of sizes with frequent errors</li>
+      <li>Adjusted buying patterns for materials that run out quickly</li>
+      <li>Introduced a simple size guide for customers</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The Result</div>
+    <h2>Real, <em>Measurable</em> Outcomes</h2>
+    <ul class="outcome-list">
+      <li><span class="icon">↓</span> 25% reduction in adjustment costs</li>
+      <li><span class="icon">✓</span> Fewer urgent market trips</li>
+      <li><span class="icon">✓</span> Faster order completion</li>
+      <li><span class="icon">✓</span> More "perfect fit" deliveries — no complaints</li>
+      <li><span class="icon">↑</span> Improved customer satisfaction and repeat business</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <p>This isn't just about the AI automation hype. It's about <strong>tracking the right data</strong>, making patterns visible, and acting on simple, clear insights.</p>
+    <p style="margin-top:0.8rem;">For small businesses, that's enough to <strong>increase profit and reduce stress.</strong></p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">This Approach Can Work For</div>
+    <h2>Any Business Dealing with <em>Custom Orders</em></h2>
+    <div class="applies-grid">
+      <div class="applies-card">
+        <h4>Business types</h4>
+        <ul>
+          <li>Shoemakers</li>
+          <li>Tailors</li>
+          <li>Small fashion brands</li>
+        </ul>
+      </div>
+      <div class="applies-card">
+        <h4>Common challenges</h4>
+        <ul>
+          <li>Custom sizing</li>
+          <li>Material sourcing</li>
+          <li>Frequent rework</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-line">
+    <p>When you can see where you're losing money, you can fix it. This dashboard makes that visible.</p>
+  </div>
+
+  <div class="cta-section">
+    <div class="section-label" style="text-align:center;">Get Started</div>
+    <h2>Your Business Deserves <em>Clarity</em></h2>
+    <p>You don't have to guess which products drive your profit or lose money on rework you can't see. Let me help you build the visibility your business needs to grow.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/2349035131946" class="btn btn-primary">WhatsApp Me</a>
+      <a href="mailto:hafsahanibaba@gmail.com" class="btn btn-secondary">Email Me</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>
+      <div class="footer-name">Hafsah Anibaba</div>
+      <div class="footer-role">Data Analyst · Nigeria</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://hafsahanibaba.netlify.app/">Portfolio</a>
+      <a href="https://betaedge.netlify.app/">BetaEdge</a>
+      <a href="mailto:hafsahanibaba@gmail.com">Email</a>
+    </div>
+    <div class="footer-copy">Simulated case study for portfolio purposes &nbsp;·&nbsp; © 2025 Hafsah Anibaba</div>
+  </div>
+
+</div>
+</body>
+</html>
