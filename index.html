@@ -1,379 +1,468 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TRPSB5SG');</script>
-<!-- End Google Tag Manager -->
-  
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hafsah Anibaba — Freelance Data Services</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --ink: #1a1a1a; --cream: #ffffff; --warm: #f0f0f0;
-      --accent: #c96a2e; --accent2: #2e6bc9; --muted: #7a7060;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
 
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 4rem;
-      background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(201,106,46,0.15);
-    }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); text-decoration: none; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { text-decoration: none; font-size: 0.85rem; font-weight: 500; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--accent); }
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hafsah Anibaba | Earth Data Scientist</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --green:#0f6e56;--green2:#1d9e75;--green3:#e1f5ee;
+            --amber:#7a5c1e;--amber2:#fdf3e0;
+            --ink:#1a1a1a;--ink2:#444;--ink3:#777;--ink4:#aaa;
+            --bg:#ffffff;--bg2:#f8f8f6;--bg3:#f0ede6;--border:#e8e5de;
+            --sans:'Segoe UI',system-ui,sans-serif;
+        }
+        body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;scroll-behavior:smooth}
 
-    /* HERO */
-    .hero {
-      min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
-      align-items: center; padding: 7rem 4rem 4rem; gap: 4rem; position: relative;
-    }
-    .hero::before {
-      content: ''; position: absolute; top: 0; right: 0;
-      width: 45%; height: 100%; background: #f7f7f7; z-index: 0;
-    }
-    .hero-text { position: relative; z-index: 1; }
-    .hero-tag {
-      display: inline-block; font-size: 0.75rem; font-weight: 500;
-      letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent);
-      border: 1px solid var(--accent); padding: 0.35rem 0.9rem;
-      border-radius: 2px; margin-bottom: 1.5rem;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 5vw, 4.2rem); line-height: 1.1; font-weight: 700; margin-bottom: 1.5rem;
-    }
-    .hero h1 em { font-style: italic; color: var(--accent); }
-    .hero-sub { font-size: 1.05rem; line-height: 1.7; color: var(--muted); max-width: 480px; margin-bottom: 2.5rem; }
-    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--accent); color: white; padding: 0.85rem 2rem;
-      border: none; border-radius: 3px; font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem; font-weight: 500; cursor: pointer; text-decoration: none;
-      display: inline-block; transition: background 0.2s, transform 0.2s; letter-spacing: 0.03em;
-    }
-    .btn-primary:hover { background: #b05520; transform: translateY(-2px); }
-    .btn-outline {
-      background: transparent; color: var(--ink); padding: 0.85rem 2rem;
-      border: 1.5px solid var(--ink); border-radius: 3px; font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem; font-weight: 500; cursor: pointer; text-decoration: none;
-      display: inline-block; transition: all 0.2s; letter-spacing: 0.03em;
-    }
-    .btn-outline:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
+        /* NAV */
+        nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--border);padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:60px}
+        .nav-logo{font-size:1.1rem;font-weight:700;color:var(--ink);text-decoration:none}
+        .nav-logo span{color:var(--green)}
+        .nav-links{display:flex;gap:1.5rem;list-style:none}
+        .nav-links a{font-size:13px;color:var(--ink3);text-decoration:none;font-weight:500;transition:color 0.2s}
+        .nav-links a:hover{color:var(--green)}
+        .nav-avail{font-size:11px;background:var(--green3);color:var(--green);padding:4px 10px;border-radius:20px;font-weight:600;letter-spacing:0.04em}
 
-    .hero-visual { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-end; }
-    .hero-card {
-      background: #ffffff; border-radius: 6px; padding: 2rem; border: 1px solid #ebebeb;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.1); width: 340px;
-    }
-    .hero-card-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1rem; }
-    .service-chip {
-      display: inline-block; background: #f5f5f5; border: 1px solid #e8e8e8;
-      border-radius: 20px; padding: 0.4rem 0.9rem; font-size: 0.8rem;
-      color: var(--ink); margin: 0.25rem;
-    }
-    .service-chip.hot { background: var(--accent); color: white; border-color: var(--accent); font-weight: 500; }
-    .hero-stat {
-      margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #ebebeb;
-      display: flex; gap: 1.5rem;
-    }
-    .stat-item { text-align: center; }
-    .stat-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--accent); }
-    .stat-label { font-size: 0.7rem; color: var(--muted); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.08em; }
+        /* HERO */
+        #hero{padding:4rem 2rem 3rem;max-width:1100px;margin:0 auto}
+        .hero-top-grid{display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:center;margin-bottom:3rem}
+        .hero-badge{display:inline-block;font-size:11px;background:var(--green3);color:var(--green);padding:5px 12px;border-radius:20px;font-weight:600;letter-spacing:0.05em;margin-bottom:1rem}
+        .hero-name{font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--ink);line-height:1.1;margin-bottom:0.5rem}
+        .hero-name em{color:var(--green);font-style:normal}
+        .hero-title{font-size:1rem;color:var(--ink3);margin-bottom:1.25rem;font-weight:400}
+        .hero-chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem}
+        .chip{font-size:11px;padding:4px 10px;border-radius:20px;background:var(--bg3);color:var(--ink2);font-weight:500}
+        .chip-g{background:var(--green3);color:var(--green)}
+        .chip-a{background:var(--amber2);color:var(--amber)}
+        .hero-desc{font-size:14px;color:var(--ink3);line-height:1.8;margin-bottom:1.75rem;max-width:600px}
+        .hero-btns{display:flex;gap:0.75rem;flex-wrap:wrap}
+        .btn{display:inline-block;padding:10px 22px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;text-align: center;}
+        .btn-green{background:var(--green);color:#fff}
+        .btn-green:hover{background:var(--green2)}
+        .btn-outline{border:1.5px solid var(--border);color:var(--ink2);background:transparent}
+        .btn-outline:hover{border-color:var(--green);color:var(--green)}
+        .hero-img-wrap{position:relative}
+        .hero-img-placeholder{width:100%;aspect-ratio:3/4;border-radius:12px;background:linear-gradient(135deg,var(--green3),var(--bg3));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem}
+        .hero-img-placeholder span{font-size:13px;color:var(--green);font-weight:600}
+        .hero-card{position:absolute;bottom:-16px;left:-16px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px 14px;box-shadow:0 4px 16px rgba(0,0,0,0.08)}
+        .hero-card-role{font-size:12px;font-weight:700;color:var(--ink)}
+        .hero-card-co{font-size:11px;color:var(--green)}
 
-    /* SECTIONS */
-    section { padding: 6rem 4rem; }
-    .section-tag { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); font-weight: 500; margin-bottom: 0.8rem; display: block; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.2; margin-bottom: 1rem; }
-    .section-sub { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 540px; }
+        /* HERO INFO BOXES */
+        .hero-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+        .info-box{background:var(--bg2);border:1px solid var(--border);padding:1.5rem;border-radius:12px;transition:transform 0.2s}
+        .info-box:hover{transform:translateY(-4px);border-color:var(--green2)}
+        .info-box h4{font-size:13px;font-weight:700;color:var(--green);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em}
+        .info-box p{font-size:12px;color:var(--ink3);line-height:1.5}
 
-  /* ABOUT */
-    #about { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-    .about-img-wrap { position: relative; }
-    .about-img-bg { position: absolute; top: 1.5rem; left: 1.5rem; right: -1.5rem; bottom: -1.5rem; background: #f0f0f0; border-radius: 4px; z-index: 0; }
-    .about-img-placeholder {
-      position: relative; z-index: 1; border-radius: 4px; overflow: hidden;
-      aspect-ratio: 4/5;
-    }
-    .about-img-placeholder img { width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 4px; }
-    .about-text .section-title { margin-bottom: 1.5rem; }
-    .about-text p { color: var(--muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.2rem; }
-    .about-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.8rem 0; }
-    .about-tag { background: #f0f0f0; border-radius: 2px; padding: 0.4rem 0.9rem; font-size: 0.78rem; font-weight: 500; color: var(--ink); letter-spacing: 0.04em; }
-    .about-links { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-    .about-link { font-size: 0.85rem; font-weight: 500; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; padding-bottom: 2px; }
-    .about-link:hover { border-color: var(--accent); }
-    
-    /* SERVICES */
-    #services { background: var(--ink); color: var(--cream); }
-    #services .section-tag { color: var(--accent); }
-    #services .section-title { color: var(--cream); }
-    #services .section-sub { color: rgba(245,240,232,0.6); }
-    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5px; margin-top: 3.5rem; background: rgba(255,255,255,0.08); }
-    .service-card { background: var(--ink); padding: 2.5rem; border: 1px solid rgba(255,255,255,0.06); transition: background 0.3s; }
-    .service-card:hover { background: #1c1a18; }
-    .service-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: rgba(201,106,46,0.25); font-weight: 700; margin-bottom: 1.2rem; display: block; }
-    .service-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--cream); margin-bottom: 0.8rem; }
-    .service-card p { font-size: 0.88rem; color: rgba(245,240,232,0.55); line-height: 1.65; }
-    .service-price { margin-top: 1.5rem; font-size: 0.8rem; color: var(--accent); font-weight: 500; letter-spacing: 0.05em; }
+        /* SCROLL TICKER */
+        .ticker{background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:10px 0;overflow:hidden;white-space:nowrap}
+        .ticker-inner{display:inline-block;animation:ticker 40s linear infinite}
+        @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+        .ticker-item{display:inline-block;font-size:12px;color:var(--ink3);font-weight:500;padding:0 2rem}
+        .ticker-item span{color:var(--green);margin-right:0.5rem}
 
-    /* PROCESS */
-    #process { background: #f7f7f7; }
-    .process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; margin-top: 3.5rem; }
-    .process-step { position: relative; }
-    .process-step::before { content: '→'; position: absolute; left: -1.2rem; top: 0.5rem; color: var(--accent); font-size: 1.2rem; }
-    .process-step:first-child::before { display: none; }
-    .step-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: rgba(201,106,46,0.2); line-height: 1; margin-bottom: 1rem; }
-    .process-step h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.6rem; }
-    .process-step p { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+        /* SECTIONS */
+        .section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+        .section-alt{background:var(--bg2)}
+        .sec-header{margin-bottom:2.5rem}
+        .sec-label{font-size:11px;font-weight:700;color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem}
+        .sec-title{font-size:1.6rem;font-weight:800;color:var(--ink);line-height:1.2}
+        .sec-title em{color:var(--green);font-style:normal}
+        .sec-sub{font-size:14px;color:var(--ink3);margin-top:0.4rem;max-width:600px}
 
+        /* ABOUT */
+        .about-grid{display:grid;grid-template-columns:1fr 280px;gap:3rem;align-items:start}
+        .about-body p{font-size:14px;color:var(--ink2);line-height:1.9;margin-bottom:0.9rem}
+        .about-meta{display:grid;gap:0.75rem}
+        .meta-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+        .meta-val{color:var(--ink);font-weight:600;text-align:right}
+        .meta-val a{color:var(--green);text-decoration:none}
 
-    /* CONTACT */
-    #contact { text-align: center; background: #ffffff; }
-    #contact .section-title { margin: 0 auto 1rem; }
-    #contact .section-sub { margin: 0 auto 3rem; text-align: center; }
-    .contact-form { max-width: 520px; margin: 0 auto; text-align: left; }
-    .form-row { margin-bottom: 1.2rem; }
-    .form-row label { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 500; margin-bottom: 0.5rem; }
-    .form-row input, .form-row textarea, .form-row select {
-      width: 100%; background: #ffffff; border: 1.5px solid #e0e0e0; border-radius: 3px;
-      padding: 0.8rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--ink); outline: none; transition: border-color 0.2s;
-    }
-    .form-row input:focus, .form-row textarea:focus, .form-row select:focus { border-color: var(--accent); }
-    .form-row textarea { height: 120px; resize: vertical; }
+        /* SKILLS GRID */
+        .skills-grid-wrap{display:flex;flex-direction:column;gap:1.5rem}
+        .skill-row{display:flex;flex-wrap:wrap;gap:0.75rem}
+        .skill-tag{background:#fff;border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;color:var(--ink2);transition:all 0.2s}
+        .skill-tag:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
 
-    /* FOOTER */
-    footer {
-      background: #1a1a1a; color: rgba(255,255,255,0.5); padding: 2rem 4rem;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-logo { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 1rem; font-weight: 700; }
-    footer p { font-size: 0.8rem; }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { font-size: 0.8rem; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--cream); }
+        /* PROJECTS */
+        .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem}
+        .proj-card{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column;transition:all 0.3s}
+        .proj-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06);transform:translateY(-4px)}
+        .proj-img-ph{width:100%;height:180px;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink);font-weight:700;background:var(--green3)}
+        .proj-body{padding:1.5rem;flex-grow:1}
+        .proj-body h3{font-size:16px;color:var(--ink);margin-bottom:0.75rem}
+        .proj-body p{font-size:13px;color:var(--ink3);line-height:1.6}
+        .proj-footer{padding:1rem 1.5rem;border-top:1px solid var(--border);background:var(--bg2)}
+        .proj-footer a{font-size:12px;color:var(--green);font-weight:700;text-decoration:none}
+        .proj-action{text-align:center;margin-top:3rem}
 
-    @media (max-width: 900px) {
-      nav { padding: 1rem 2rem; }
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 6rem 2rem 3rem; }
-      .hero::before { display: none; }
-      .hero-visual { align-items: flex-start; }
-      .hero-card { width: 100%; }
-      section { padding: 4rem 2rem; }
-      #about { grid-template-columns: 1fr; gap: 3rem; }
-      .services-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr 1fr; }
-      .betaedge-banner { padding: 2rem; }
-      footer { padding: 1.5rem 2rem; flex-direction: column; align-items: flex-start; }
-    }
-  </style>
+        /* EXPERIENCE & EDUCATION */
+        .exp-edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+        .col-title{font-size:13px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.5rem;border-bottom:2px solid var(--green3);padding-bottom:0.5rem;display:inline-block}
+        .tl{display:grid;gap:1.5rem}
+        .tl-item{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.25rem;transition:all 0.3s ease}
+        .tl-summary{font-size:14px;font-weight:700;color:var(--ink)}
+        .tl-sub{font-size:12px;color:var(--green);font-weight:600;margin-top:2px}
+        .tl-content{max-height:none;overflow:visible;opacity:1;padding-top:1rem}
+        .tl-content ul{padding-left:1.25rem;display:grid;gap:0.6rem}
+        .tl-content li{font-size:13px;color:var(--ink3);line-height:1.5}
+        .tl-action{margin-top:1.5rem}
+
+        /* PUBLISHED PAPERS */
+        .papers-list{display:grid;gap:1.5rem}
+        .paper-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.75rem;transition:all 0.2s;text-decoration:none;display:block}
+        .paper-card:hover{border-color:var(--green2);transform:translateX(4px)}
+        .paper-top{display:flex;justify-content:space-between;align-items:start;gap:1rem;margin-bottom:0.75rem}
+        .paper-title{font-size:15px;font-weight:700;color:var(--ink);line-height:1.4}
+        .paper-status{font-size:10px;background:var(--bg3);color:var(--ink2);padding:3px 8px;border-radius:4px;text-transform:uppercase;font-weight:700;letter-spacing:0.05em;white-space:nowrap}
+        .paper-desc{font-size:13px;color:var(--ink3);line-height:1.6}
+
+        /* CONTACT */
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+        .contact-links{display:grid;gap:0.75rem}
+        .c-link{display:flex;align-items:center;gap:1rem;padding:12px 16px;border:1px solid var(--border);border-radius:8px;text-decoration:none;transition:all 0.2s}
+        .c-link:hover{border-color:var(--green);background:var(--green3)}
+        .c-icon{width:32px;height:32px;border-radius:6px;background:var(--bg3);display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0}
+        .c-icon svg{width:18px;height:18px;fill:currentColor}
+        .c-text-label{font-size:11px;color:var(--ink3)}
+        .c-text-val{font-size:13px;color:var(--ink);font-weight:600}
+
+        /* FOOTER */
+        footer{background:var(--ink);padding:3rem 2rem;text-align:center}
+        .footer-logo{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:0.5rem}
+        .footer-logo span{color:var(--green2)}
+        .footer-tagline{font-size:12px;color:#aaa;margin-bottom:1.5rem}
+        .footer-social{display:flex;justify-content:center;gap:1rem;margin-bottom:1.5rem}
+        .footer-social a{color:#aaa;transition:color 0.2s}
+        .footer-social a:hover{color:var(--green2)}
+        .footer-social svg{width:20px;height:20px;fill:currentColor}
+        .footer-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+        .footer-links a{font-size:12px;color:#aaa;text-decoration:none;transition:color 0.2s}
+        .footer-links a:hover{color:var(--green2)}
+        .footer-copy{font-size:11px;color:#555}
+
+        @media(max-width:850px){
+            .hero-top-grid{grid-template-columns:1fr}
+            .hero-img-wrap{display:none}
+            .hero-info-grid{grid-template-columns:1fr}
+            .exp-edu-grid{grid-template-columns:1fr;gap:2rem}
+            .contact-grid{grid-template-columns:1fr}
+            .about-grid{grid-template-columns:1fr}
+            .section{padding:3.5rem 1.25rem}
+        }
+    </style>
 </head>
 <body>
-
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRPSB5SG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
 <nav>
-  <a href="#" class="nav-logo">Hafsah Anibaba</a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="https://hafsahanibaba.netlify.app/hafsah-portfolio">About</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact">Hire Me</a></li>
-    <li><a href="project.html" class="btn-outline">View Projects</a></li>
-  </ul>
+<a class="nav-logo" href="#">Hafsah<span>.</span></a>
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Work</a></li>
+<li><a href="#papers">Research</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<span class="nav-avail">Open to Opportunities</span>
 </nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-text">
-    <span class="hero-tag">Available for Freelance</span>
-    <h1>Helping You <em>Work Smarter</em><br> &amp; <em>Easier</em></h1>
-     <p class="hero-sub">Helping businesses, teams, and researchers capture what matters, uncover meaningful insights, and make confident, high impact decisions while refining and automating workflows so you can focus on your next big move.</p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn-primary">Hire Me</a>
-      <a href="project.html" class="btn-outline">View Projects</a>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <div class="hero-card">
-      <div class="hero-card-label">Services I offer</div>
-      <div>
-        <span class="service-chip hot">Data Cleaning</span>
-        <span class="service-chip">EDA &amp; Insights</span>
-        <span class="service-chip hot">Workflow Automation</span>
-        <span class="service-chip">Report Generation</span>
-        <span class="service-chip hot">Data Collection System</span>
-      </div>
-      <div class="hero-stat">
-        <div class="stat-item"><div class="stat-num">7+</div><div class="stat-label">Months Exp.</div></div>
-        <div class="stat-item"><div class="stat-num">95%</div><div class="stat-label">Python</div></div>
-        <div class="stat-item"><div class="stat-num">Fast</div><div class="stat-label">Turnaround</div></div>
-      </div>
-    </div>
-  </div>
+<section id="hero">
+<div class="hero-top-grid">
+<div>
+<div class="hero-badge">Earth Data Scientist · ESG Data Engineer</div>
+<h1 class="hero-name">Hafsah Anibaba<br/><em>Geophysicist.</em></h1>
+<p class="hero-title">ESG Data Engineering · Energy Management · Subsurface to Meter</p>
+<div class="hero-chips">
+<span class="chip chip-g">Petroleum Geoscience</span>
+<span class="chip chip-g">ESG Data Pipelines</span>
+<span class="chip chip-a">CCUS</span>
+<span class="chip chip-a">Carbon Capture</span>
+</div>
+<p class="hero-desc">I bridge petroleum geoscience and data engineering to help organisations measure, manage, and reduce their carbon footprints — making Nigeria's energy transition measurable, transparent, and actionable.</p>
+<div class="hero-btns">
+<a class="btn btn-green" href="#projects">View My Work</a>
+</div>
+</div>
+<div class="hero-img-wrap">
+<div class="hero-img-placeholder">
+<span>Hafsah Anibaba</span>
+<small>Earth Data Scientist</small>
+</div>
+<div class="hero-card">
+<div class="hero-card-role">Data Analyst</div>
+<div class="hero-card-co">DEER Nigeria</div>
+</div>
+</div>
+</div>
+<div class="hero-info-grid">
+<div class="info-box">
+<h4>Geoscience + Data</h4>
+<p>Well logs, seismic interpretation, and reservoir characterisation powered by Python and Petrel for high-fidelity subsurface modeling.</p>
+</div>
+<div class="info-box">
+<h4>ESG Data Engineering</h4>
+<p>Building pipelines for GHG Protocol compliance, flaring data quantification, and audit-ready carbon accounting frameworks.</p>
+</div>
+<div class="info-box">
+<h4>Energy Audits</h4>
+<p>CEM &amp; CAPM focused efficiency audits, solar feasibility studies, and data-driven measurement and verification for SMEs.</p>
+</div>
+</div>
 </section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-img-wrap">
-    <div class="about-img-bg"></div>
-    <div class="about-img-placeholder">
-      <img src="img/headshot.jpg" alt="Hafsah Anibaba"/>
-    </div>
-  </div>
-  <div class="about-text">
-    <span class="section-tag">About Me</span>
-    <p>Hey 👋, I’m Hafsah, a freelance data analyst specialising in data cleaning, workflow automation, and dataset preparation.
-      Whether you need business insights, time-saving automation, or structured datasets for research, I deliver accurate, well-documented, and practical solutions. My focus is clarity, efficiency, and precision.</p>
-    <p>I'm also building <strong>BetaEdge</strong> — a platform helping professionals gain clarity and grow in their careers.</p>
-    <div class="about-tags">
-      <span class="about-tag">Python</span>
-      <span class="about-tag">Geospatial Analysis</span>
-      <span class="about-tag">Energy Systems</span>
-      <span class="about-tag">Report Generation</span>
-      <span class="about-tag">KPI Management</span>
-      <span class="about-tag">Workflow Automation</span>
-      <span class="about-tag">Structured Data Collection Systems</span>
-    </div>
-    <div class="about-links">
-      <a href="hafsah-portfolio.html" class="about-link">→ Full Portfolio</a>
-      <a href="https://betaedge.netlify.app/" target="_blank" class="about-link">→ Visit BetaEdge</a>
-      <a href="mailto:hafsahanibaba@gmail.com" class="about-link">→ Email Me</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- SERVICES -->
-<section id="services">
-  <span class="section-tag">What I Do</span>
-  <h2 class="section-title" style="color:var(--cream);">Services built around<br>your data challenges</h2>
-  <p class="section-sub">Whether your data feels overwhelming, repetitive, or unclear — I deliver structured solutions that make your work easier and smarter.</p>
-  <div class="services-grid">
-
-    <div class="service-card">
-      <span class="service-num">01</span>
-      <h3>Data Cleaning &amp; Preparation</h3>
-      <p>Dealing with inconsistent spreadsheets, missing values, or unreliable datasets? I transform messy data into clean, structured, analysis-ready files so you can stop fixing errors and start making confident decisions.</p>
-    </div>
-
-    <div class="service-card">
-      <span class="service-num">02</span>
-      <h3>Exploratory Data Analysis &amp; Insights</h3>
-      <p>Unsure what your data is actually telling you? I analyse patterns, trends, and anomalies to uncover meaningful insights, delivering clear visualisations and concise summaries that turn numbers into direction.</p>
-    </div>
-
-    <div class="service-card">
-      <span class="service-num">03</span>
-      <h3>Workflow Automation</h3>
-      <p>Spending too much time on repetitive tasks or manual reporting? I design automated workflows that reduce errors, save time, and streamline your operations so your processes run smoothly and efficiently.</p>
-    </div>
-
-    <div class="service-card">
-      <span class="service-num">04</span>
-      <h3>Structured Data Collection Systems</h3>
-      <p>Collecting data but constantly correcting mistakes later? I build structured data collection systems with proper validation and organisation so your information is clean, consistent, and ready for analysis from the start.</p>
-    </div>
-
-    <div class="service-card">
-      <span class="service-num">05</span>
-      <h3>Analysis &amp; Research Reports</h3>
-      <p>Struggling to present findings clearly or support decisions with evidence? I produce detailed analysis and structured reports that communicate results professionally and make complex information easy to understand and act on.</p>
-    </div>
-
-  </div>
-</section>
-
-  
-<!-- PROCESS -->
-<section id="process">
-  <span class="section-tag">How It Works</span>
-  <h2 class="section-title">Simple, clear process</h2>
-  <p class="section-sub">On how we get things done together</p>
-  <div class="process-steps">
-    <div class="process-step">
-      <div class="step-num">01</div>
-      <h3>Tell me your problem</h3>
-      <p>Share what you need to get done A quick message is enough to get started.</p>
-    </div>
-    <div class="process-step">
-      <div class="step-num">02</div>
-      <h3>I scope the work</h3>
-      <p>I'll outline exactly what I'll deliver, the timeline, and the price.</p>
-    </div>
-    <div class="process-step">
-      <div class="step-num">03</div>
-      <h3>I get to work</h3>
-      <p>I develop data driven strategies. I derive actionable insights. I refine and automate workflows. I produce detailed analysis and research reports.</p>
-    </div>
-    <div class="process-step">
-      <div class="step-num">04</div>
-      <h3>You get results</h3>
-      <p>Clear, well documented results you can act on immediately. Time saving automated processes that reduce manual work. Structured data and reports that simplify decision making. Insightful analysis tailored to your business or research needs delivered reliably, clearly and on time.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" style="background:#ffffff; padding:6rem 4rem; text-align:center;">
-  <span style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.18em; color:#c96a2e; font-weight:500; margin-bottom:0.8rem; display:block; text-align:center;">Get in Touch</span>
-  <h2 style="font-family:'Playfair Display',serif; font-size:clamp(2rem,3.5vw,2.8rem); line-height:1.2; margin-bottom:1rem; color:#1a1a1a;">Ready to connect?</h2>
-  <p style="color:#7a7060; font-size:1rem; line-height:1.7; max-width:480px; margin:0 auto 3rem;">Pick the easiest way to reach me — I respond within 24 hours.</p>
-  <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; max-width:680px; margin:0 auto; width:100%;">
-
-    <a href="https://wa.me/2349035131946" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;padding:2rem 1rem;background:#25D366;color:white;border-radius:8px;text-decoration:none;font-family:'DM Sans', sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.03em;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 16px 32px rgba(37,211,102,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp Me
-    </a>
-
-    <a href="mailto:hafsahanibaba@gmail.com" style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;padding:2rem 1rem;background:#EA4335;color:white;border-radius:8px;text-decoration:none;font-family:'DM Sans', sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.03em;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 16px 32px rgba(234,67,53,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-      Mail Me
-    </a>
-
-    <a href="tel:+2349035131946" style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;padding:2rem 1rem;background:#1a1a1a;color:white;border-radius:8px;text-decoration:none;font-family:'DM Sans', sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.03em;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 16px 32px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-      Call Me
-    </a>
-
-    <a href="https://www.linkedin.com/in/hafsah-anibaba" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;padding:2rem 1rem;background:#0077B5;color:white;border-radius:8px;text-decoration:none;font-family:'DM Sans', sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.03em;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 16px 32px rgba(0,119,181,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      LinkedIn
-    </a>
-
-  </div>
-  <p style="margin-top:2rem; font-size:0.78rem; color:#7a7060;">📍Nigeria &nbsp;·&nbsp; hafsahanibaba@gmail.com</p>
-</section>
-  
+<div class="ticker">
+<div class="ticker-inner">
+<span class="ticker-item"><span>·</span> Petroleum Geoscience</span>
+<span class="ticker-item"><span>·</span> ESG Data Engineering</span>
+<span class="ticker-item"><span>·</span> Emissions Quantification</span>
+<span class="ticker-item"><span>·</span> Carbon Capture Monitoring</span>
+<span class="ticker-item"><span>·</span> Climate Risk Modelling</span>
+<span class="ticker-item"><span>·</span> GHG Protocol</span>
+<span class="ticker-item"><span>·</span> TCFD Frameworks</span>
+<span class="ticker-item"><span>·</span> Energy Lifecycle Management</span>
+<span class="ticker-item"><span>·</span> Petroleum Geoscience</span>
+<span class="ticker-item"><span>·</span> ESG Data Engineering</span>
+<span class="ticker-item"><span>·</span> Emissions Quantification</span>
+<span class="ticker-item"><span>·</span> Carbon Capture Monitoring</span>
+<span class="ticker-item"><span>·</span> Climate Risk Modelling</span>
+<span class="ticker-item"><span>·</span> GHG Protocol</span>
+<span class="ticker-item"><span>·</span> TCFD Frameworks</span>
+</div>
+</div>
+<div class="section-alt">
+<div class="section" id="about">
+<div class="sec-header">
+<div class="sec-label">About Me</div>
+<h2 class="sec-title">Earth Data Scientist <em>with a geoscience core</em></h2>
+</div>
+<div class="about-grid">
+<div class="about-body">
+<p>I am a geophysicist and data analyst with deep roots in <strong>petroleum geoscience</strong> and a growing expertise in <strong>ESG data engineering, energy management, and AI</strong>.</p>
+<p>My purpose is to make Nigeria's energy transition <strong>measurable and actionable</strong>. I build data pipelines that turn raw earth data — flaring volumes, well logs, reservoir characteristics — into credible carbon accounts and audit recommendations.</p>
+<p>I am an integrated professional: geoscientist, data analyst, and energy auditor. This allows me to work across the entire energy value chain, from real-time flaring monitoring to designing data architecture for centralized energy management.</p>
+</div>
+<div class="about-meta">
+<div class="meta-row"><span class="meta-key">Degree</span><span class="meta-val">BSc. Geophysics</span></div>
+<div class="meta-row"><span class="meta-key">CGPA</span><span class="meta-val">4.06 / 5.00</span></div>
+<div class="meta-row"><span class="meta-key">Location</span><span class="meta-val">Lagos, Nigeria</span></div>
+<div class="meta-row"><span class="meta-key">Fellowship</span><span class="meta-val">Millennium Fellow</span></div>
+<div class="meta-row"><span class="meta-key">Email</span><span class="meta-val"><a href="mailto:hafsahanibaba@gmail.com">hafsahanibaba@gmail.com</a></span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="skills">
+<div class="sec-header">
+<div class="sec-label">Skillset</div>
+<h2 class="sec-title">Technical <em>Capabilities</em></h2>
+<p class="sec-sub">An integrated toolkit spanning subsurface analysis, data engineering, and climate frameworks.</p>
+</div>
+<div class="skills-grid-wrap">
+<div class="skill-row">
+<span class="skill-tag">Python</span>
+<span class="skill-tag">Pandas</span>
+<span class="skill-tag">Petrel</span>
+<span class="skill-tag">GIS</span>
+<span class="skill-tag">Seismic Interpretation</span>
+<span class="skill-tag">ESG Reporting</span>
+<span class="skill-tag">GHG Protocol</span>
+<span class="skill-tag">TCFD</span>
+<span class="skill-tag">Energy Audits</span>
+<span class="skill-tag">CEM (target)</span>
+<span class="skill-tag">Well Log Analysis</span>
+<span class="skill-tag">Petrophysics</span>
+<span class="skill-tag">CCUS</span>
+<span class="skill-tag">Geospatial ML</span>
+<span class="skill-tag">Power BI</span>
+</div>
+</div>
+</div>
+<div class="section-alt" id="projects">
+<div class="section">
+<div class="sec-header">
+<div class="sec-label">Work</div>
+<h2 class="sec-title">Featured <em>Projects</em></h2>
+</div>
+<div class="proj-grid">
+<!-- Project 1 -->
+<div class="proj-card">
+<div class="proj-img-ph">Petrophysics &amp; Well Logs</div>
+<div class="proj-body">
+<h3>9-Well Field Reservoir Study</h3>
+<p>Full petrophysical analysis using Python scripts to derive porosity and fluid saturation across multiple wells for economic field valuation.</p>
+</div>
+<div class="proj-footer">
+<a href="https://sites.google.com/view/hafsahanibabait/project">View Case Study →</a>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="proj-card">
+<div class="proj-img-ph" style="background:var(--amber2)">Infrastructure Risk GIS</div>
+<div class="proj-body">
+<h3>Power Corridor Encroachment</h3>
+<p>Spatial autocorrelation modeling to quantify vegetation risk for utility providers, reducing maintenance overhead and ensuring field safety.</p>
+</div>
+<div class="proj-footer">
+<a href="https://hafsahanibaba.hashnode.dev/geospatial-analysis-of-vegetation-encroachment-risk-for-power-line-safety-in-nigeria">Read Analysis →</a>
+</div>
+</div>
+</div>
+<div class="proj-action">
+<a class="btn btn-outline" href="#">View All Projects</a>
+</div>
+</div>
+</div>
+<div class="section" id="experience">
+<div class="sec-header">
+<div class="sec-label">Background</div>
+<h2 class="sec-title">Education &amp; <em>Experience</em></h2>
+</div>
+<div class="exp-edu-grid">
+<!-- Experience Column -->
+<div>
+<h3 class="col-title">Experience</h3>
+<div class="tl">
+<div class="tl-item">
+<div class="tl-summary">Data Analyst | DEER Nigeria</div>
+<div class="tl-sub">2025 – Present · Lagos, Nigeria</div>
+<div class="tl-content">
+<ul>
+<li>Designing and tracking KPIs across gas, diesel, solar, and electricity services</li>
+<li>Translating raw operational data into strategic insights for leadership</li>
+<li>Championing data culture and building analytical workflows across teams</li>
+</ul>
+</div>
+</div>
+<div class="tl-item">
+<div class="tl-summary">Geophysics Intern | Oando PLC</div>
+<div class="tl-sub">2024 · Nigeria</div>
+<div class="tl-content">
+<ul>
+<li>Used Python for petrophysical analysis across 9 wells in a sample field</li>
+<li>Petrophysical analysis and well correlation using Petrel software</li>
+<li>Applied fault interpretation and seismic horizon mapping across cubes</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tl-action">
+<a class="btn btn-outline btn-full" href="#" style="width:100%">View past experience</a>
+</div>
+</div>
+<!-- Education Column -->
+<div>
+<h3 class="col-title">Education</h3>
+<div class="tl">
+<div class="tl-item">
+<div class="tl-summary">BSc. Geophysics | UNILAG</div>
+<div class="tl-sub">2017 – 2024 · 4.06 CGPA</div>
+<div class="tl-content">
+<ul>
+<li>Specialised in GIS, Geothermal Energy, and Quantitative Geophysics</li>
+<li>Applied Python programming to geophysical analysis throughout the degree</li>
+<li>Led research projects combining subsurface analysis with data science</li>
+</ul>
+</div>
+</div>
+<div class="tl-item">
+<div class="tl-summary">Millennium Fellowship</div>
+<div class="tl-sub">2023 · Global Leadership Program</div>
+<div class="tl-content">
+<ul>
+<li>Selected for a semester-long leadership development program by MCN and United Nations Academic Impact</li>
+<li>Advanced Sustainable Development Goals (SDGs) through campus-based impact projects</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tl-action">
+<a class="btn btn-outline btn-full" href="#" style="width:100%">View my learning history</a>
+</div>
+</div>
+</div>
+</div>
+<div class="section-alt" id="papers">
+<div class="section">
+<div class="sec-header">
+<div class="sec-label">Research</div>
+<h2 class="sec-title">Published Technical <em>Papers</em></h2>
+</div>
+<div class="papers-list">
+<a class="paper-card" href="#">
+<div class="paper-top">
+<h3 class="paper-title">Using public well logs and flaring data to predict carbon intensity of Nigerian oil fields</h3>
+<span class="paper-status">Preprint</span>
+</div>
+<p class="paper-desc">A predictive model methodology for upstream ESG reporting, bridging subsurface physics with emissions quantification.</p>
+</a>
+<a class="paper-card" href="#">
+<div class="paper-top">
+<h3 class="paper-title">A framework for SME energy audits using external tariff and consumption data</h3>
+<span class="paper-status">In Progress</span>
+</div>
+<p class="paper-desc">Proposing a data-driven audit methodology for Nigerian small businesses without the need for expensive on-site instrumentation.</p>
+</a>
+</div>
+</div>
+</div>
+<div class="section" id="contact">
+<div class="section">
+<div class="sec-header">
+<div class="sec-label">Get in Touch</div>
+<h2 class="sec-title">Let's work <em>together</em></h2>
+</div>
+<div class="contact-grid">
+<div class="contact-body">
+<p>I am open to graduate programmes and early-career roles in <strong>ESG data engineering and energy consulting</strong>.</p>
+<p>If you are working on <strong>decarbonisation in Nigeria's energy sector</strong> — I want to hear from you.</p>
+<p style="font-size:12px;color:var(--ink3);margin-top:1rem;font-style:italic">Available for strategic partnerships and energy audit projects.</p>
+</div>
+<div class="contact-links">
+<a class="c-link" href="mailto:hafsahanibaba@gmail.com">
+<div class="c-icon">
+<svg viewbox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+</div>
+<div><div class="c-text-label">Email</div><div class="c-text-val">hafsahanibaba@gmail.com</div></div>
+</a>
+<a class="c-link" href="https://www.linkedin.com/in/hafsah-anibaba">
+<div class="c-icon">
+<svg viewbox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path></svg>
+</div>
+<div><div class="c-text-label">LinkedIn</div><div class="c-text-val">hafsah-anibaba</div></div>
+</a>
+<a class="c-link" href="https://github.com/hafsah2020">
+<div class="c-icon">
+<svg viewbox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path></svg>
+</div>
+<div><div class="c-text-label">GitHub</div><div class="c-text-val">hafsah2020</div></div>
+</a>
+<a class="c-link" href="https://wa.me/2349035131946">
+<div class="c-icon">
+<svg viewbox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.32a8.188 8.188 0 0 1-1.26-4.38c.01-4.54 3.7-8.24 8.25-8.24zm4.53 11.83c-.24-.12-1.45-.71-1.67-.8s-.39-.12-.55.12c-.17.24-.66.83-.81.99-.15.17-.3.19-.54.07-.24-.12-1.02-.37-1.94-1.19-.72-.64-1.2-1.43-1.34-1.67-.15-.24-.02-.37.1-.49.11-.11.24-.28.37-.42.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.42s-.55-1.33-.76-1.82c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.45.06-.68.31-.24.25-.92.9-.92 2.2 0 1.3.94 2.56 1.08 2.73.13.17 1.86 2.83 4.51 3.97.63.27 1.12.43 1.51.55.63.2 1.21.17 1.67.1.51-.08 1.45-.59 1.65-1.17.2-.58.2-1.07.14-1.17-.05-.1-.2-.18-.44-.3z"></path></svg>
+</div>
+<div><div class="c-text-label">WhatsApp</div><div class="c-text-val">+234 903 513 1946</div></div>
+</a>
+</div>
+</div>
+</div>
+</div>
 <footer>
-  <div>
-    <div class="footer-logo">Hafsah Anibaba</div>
-    <p style="margin-top:0.3rem;">Data Analyst · Nigeria</p>
-  </div>
-  <div class="footer-links">
-    <a href="hafsah-portfolio.html">Portfolio</a>
-    <a href="https://betaedge.netlify.app/" target="_blank">BetaEdge</a>
-    <a href="mailto:hafsahanibaba@gmail.com">Email</a>
-  </div>
-  <p>© 2025 Hafsah Anibaba</p>
+<div class="footer-logo">Hafsah<span>.</span></div>
+<div class="footer-tagline">Earth Data Scientist · ESG Data Engineering · Energy Management</div>
+<div class="footer-social">
+<a href="mailto:hafsahanibaba@gmail.com"><svg viewbox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg></a>
+<a href="https://www.linkedin.com/in/hafsah-anibaba"><svg viewbox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path></svg></a>
+<a href="https://github.com/hafsah2020"><svg viewbox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path></svg></a>
+<a href="https://wa.me/2349035131946"><svg viewbox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.32a8.188 8.188 0 0 1-1.26-4.38c.01-4.54 3.7-8.24 8.25-8.24zm4.53 11.83c-.24-.12-1.45-.71-1.67-.8s-.39-.12-.55.12c-.17.24-.66.83-.81.99-.15.17-.3.19-.54.07-.24-.12-1.02-.37-1.94-1.19-.72-.64-1.2-1.43-1.34-1.67-.15-.24-.02-.37.1-.49.11-.11.24-.28.37-.42.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.42s-.55-1.33-.76-1.82c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.45.06-.68.31-.24.25-.92.9-.92 2.2 0 1.3.94 2.56 1.08 2.73.13.17 1.86 2.83 4.51 3.97.63.27 1.12.43 1.51.55.63.2 1.21.17 1.67.1.51-.08 1.45-.59 1.65-1.17.2-.58.2-1.07.14-1.17-.05-.1-.2-.18-.44-.3z"></path></svg></a>
+</div>
+<div class="footer-links">
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#experience">Experience</a>
+<a href="#projects">Work</a>
+<a href="mailto:hafsahanibaba@gmail.com">Contact</a>
+</div>
+<div class="footer-copy">© 2026 Hafsah Anibaba · Lagos, Nigeria</div>
 </footer>
-
-</body>
-</html>
+</body></html>
