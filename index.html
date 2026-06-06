@@ -27,7 +27,7 @@
         --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     }
     
-    body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;scroll-behavior:smooth;overflow-x:hidden}
+    body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;scroll-behavior:smooth;overflow-x:hidden;width:100%}
     
     /* Reveal Animations Base */
     .reveal {
@@ -51,26 +51,26 @@
         transform: translateX(0);
     }
 
-    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;height:60px}
+    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 1rem;display:flex;justify-content:space-between;align-items:center;height:60px}
     .nav-logo{font-size:1.1rem;font-weight:700;color:var(--ink);text-decoration:none;z-index:110}.nav-logo span{color:var(--green)}
     .nav-links{display:none;gap:1.5rem;list-style:none}.nav-links a{font-size:13px;color:var(--ink3);text-decoration:none;font-weight:500;transition:color 0.2s}.nav-links a:hover{color:var(--green)}
     .nav-avail{font-size:10px;background:var(--green3);color:var(--green);padding:4px 10px;border-radius:20px;font-weight:600;letter-spacing:0.04em;white-space:nowrap}
 
     .menu-toggle{display:flex;align-items:center;justify-content:center;background:none;border:none;color:var(--ink);cursor:pointer;z-index:110;padding:5px;transition:transform 0.2s}.menu-toggle:active{transform:scale(0.9)}
-    .nav-drawer{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:#fff;box-shadow:-5px 0 15px rgba(0,0,0,0.05);transition:right 0.4s cubic-bezier(0.4, 0, 0.2, 1);z-index:105;padding:80px 2rem 2rem;display:flex;flex-direction:column;gap:1.5rem}.nav-drawer.active{right:0}
+    .nav-drawer{position:fixed;top:0;right:-100%;width:85%;max-width:320px;height:100vh;background:#fff;box-shadow:-5px 0 15px rgba(0,0,0,0.05);transition:right 0.4s cubic-bezier(0.4, 0, 0.2, 1);z-index:105;padding:80px 2rem 2rem;display:flex;flex-direction:column;gap:1.5rem}.nav-drawer.active{right:0}
     .nav-drawer-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:all 0.4s ease;z-index:104}.nav-drawer-overlay.active{opacity:1;visibility:visible}
     .drawer-links{list-style:none;display:flex;flex-direction:column;gap:1.5rem}.drawer-links a{font-size:1.1rem;color:var(--ink);text-decoration:none;font-weight:600;transition:color 0.2s}.drawer-links a:hover{color:var(--green)}
 
-    #hero{padding:3rem 1.5rem;max-width:1100px;margin:0 auto}
-    .hero-top-grid{display:flex;flex-direction:column-reverse;gap:2rem;margin-bottom:3rem}
+    #hero{padding:2rem 1rem 3rem;max-width:1100px;margin:0 auto}
+    .hero-top-grid{display:flex;flex-direction:column-reverse;gap:2.5rem;margin-bottom:3rem;text-align:center}
     
     /* Hero Entrance Stagger */
     .hero-badge { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
     .hero-name { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s forwards; opacity: 0; }
     .hero-title { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards; opacity: 0; }
-    .hero-chips { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards; opacity: 0; }
-    .hero-desc { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards; opacity: 0; }
-    .hero-btns { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards; opacity: 0; }
+    .hero-chips { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards; opacity: 0; justify-content: center; }
+    .hero-desc { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards; opacity: 0; margin-left: auto; margin-right: auto; }
+    .hero-btns { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards; opacity: 0; justify-content: center; }
     .hero-img-wrap { animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards; opacity: 0; }
 
     @keyframes fadeInUp {
@@ -79,121 +79,118 @@
     }
 
     .hero-badge{display:inline-block;font-size:11px;background:var(--green3);color:var(--green);padding:5px 12px;border-radius:20px;font-weight:600;letter-spacing:0.05em;margin-bottom:1rem}
-    .hero-name{font-size:clamp(2rem,8vw,3rem);font-weight:800;color:var(--ink);line-height:1.1;margin-bottom:0.5rem}.hero-name em{color:var(--green);font-style:normal}
+    .hero-name{font-size:clamp(2.2rem, 9vw, 3rem);font-weight:800;color:var(--ink);line-height:1.1;margin-bottom:0.75rem}.hero-name em{color:var(--green);font-style:normal}
     .hero-title{font-size:1rem;color:var(--ink3);margin-bottom:1.25rem;font-weight:400}
     .hero-chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem}
-    .chip{font-size:11px;padding:4px 10px;border-radius:20px;background:var(--bg3);color:var(--ink2);font-weight:500;transition:all 0.2s}
+    .chip{font-size:11px;padding:4px 12px;border-radius:20px;background:var(--bg3);color:var(--ink2);font-weight:500;transition:all 0.2s}
     .chip:hover{background:var(--border);transform:translateY(-1px)}
     .chip-g{background:var(--green3);color:var(--green)}.chip-a{background:var(--amber2);color:var(--amber)}
     .hero-desc{font-size:14px;color:var(--ink3);line-height:1.8;margin-bottom:1.75rem;max-width:600px}
     .hero-btns{display:flex;gap:0.75rem;flex-wrap:wrap}
     
-    .btn{display:inline-block;padding:12px 22px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);cursor:pointer;border:none;text-align:center;position:relative;overflow:hidden}
+    .btn{display:inline-block;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);cursor:pointer;border:none;text-align:center;position:relative;overflow:hidden}
     .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
-    .btn:active{transform:translateY(0);box-shadow:var(--shadow-sm)}
     .btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green2)}
     .btn-outline{border:1.5px solid var(--border);color:var(--ink2);background:transparent}.btn-outline:hover{border-color:var(--green);color:var(--green)}
     
-    .hero-img-wrap{position:relative;width:100%;max-width:400px;margin:0 auto}
-    .hero-img-placeholder{width:100%;aspect-ratio:3/4;border-radius:12px;background:linear-gradient(135deg,var(--green3),var(--bg3));display:flex;flex-direction:column;align-items:center;justify-content:center;object-fit:cover;box-shadow:var(--shadow-lg)}
-    .hero-card{position:absolute;bottom:-10px;right:10px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px 14px;box-shadow:0 4px 16px rgba(0,0,0,0.08);transition:transform 0.3s ease;animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s forwards; opacity: 0;}
-    .hero-img-wrap:hover .hero-card{transform:translateY(-5px)}
-    .hero-card-role{font-size:12px;font-weight:700;color:var(--ink)}
-    .hero-card-co{font-size:11px;color:var(--green)}
+    .hero-img-wrap{position:relative;width:100%;max-width:320px;margin:0 auto}
+    .hero-img-placeholder{width:100%;aspect-ratio:1/1;border-radius:50%;background:linear-gradient(135deg,var(--green3),var(--bg3));display:flex;flex-direction:column;align-items:center;justify-content:center;object-fit:cover;box-shadow:var(--shadow-lg)}
+    .hero-card{position:absolute;bottom:0;right:0;background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px 14px;box-shadow:0 4px 16px rgba(0,0,0,0.08);transition:transform 0.3s ease;animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s forwards; opacity: 0; text-align: left;}
     
-    .hero-info-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:2rem}
+    .hero-info-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:2rem}
     .info-box{background:var(--bg2);border:1px solid var(--border);padding:1.5rem;border-radius:12px;transition:all 0.3s ease;opacity:0;transform:translateY(20px)}
     .info-box.active{opacity:1;transform:translateY(0)}
-    .info-box:hover{transform:translateY(-5px);border-color:var(--green);box-shadow:var(--shadow-md)}
     .info-box h4{font-size:13px;font-weight:700;color:var(--green);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em}
-    .info-box p{font-size:12px;color:var(--ink3);line-height:1.5}
+    .info-box p{font-size:13px;color:var(--ink3);line-height:1.6}
 
-    .ticker{background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:10px 0;overflow:hidden;white-space:nowrap}
+    .ticker{background:var(--bg3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:12px 0;overflow:hidden;white-space:nowrap}
     .ticker-inner{display:inline-block;animation:ticker 45s linear infinite}
-    @media (prefers-reduced-motion: reduce) {
-        .ticker-inner { animation: none; white-space: normal; }
-    }
     @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .ticker-item{display:inline-block;font-size:12px;color:var(--ink3);font-weight:500;padding:0 2rem}.ticker-item span{color:var(--green);margin-right:0.5rem}
 
-    .section{padding:3.5rem 1.5rem;max-width:1100px;margin:0 auto}
+    .section{padding:3.5rem 1rem;max-width:1100px;margin:0 auto}
     .section-alt{background:var(--bg2)}
     .sec-header{margin-bottom:2rem}
     .sec-label{font-size:11px;font-weight:700;color:var(--green);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem}
-    .sec-title{font-size:1.5rem;font-weight:800;color:var(--ink);line-height:1.2}.sec-title em{color:var(--green);font-style:normal}
-    .sec-sub{font-size:14px;color:var(--ink3);margin-top:0.4rem;max-width:600px}
+    .sec-title{font-size:1.65rem;font-weight:800;color:var(--ink);line-height:1.2}.sec-title em{color:var(--green);font-style:normal}
+    .sec-sub{font-size:14px;color:var(--ink3);margin-top:0.6rem;max-width:600px}
 
-    .about-grid{display:grid;grid-template-columns:1fr;gap:2rem}
-    .about-body p{font-size:14px;color:var(--ink2);line-height:1.9;margin-bottom:0.9rem}
+    .about-grid{display:grid;grid-template-columns:1fr;gap:2.5rem}
+    .about-body p{font-size:14px;color:var(--ink2);line-height:1.9;margin-bottom:1.2rem}
     #about em { color: var(--green); font-style: italic; font-weight: inherit; }
-    .about-meta{display:grid;gap:0.5rem}
-    .meta-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);font-size:13px;transition:background 0.2s ease}
-    .meta-row:hover{background:rgba(15, 110, 86, 0.02)}
-    .meta-val{color:var(--ink);font-weight:600;text-align:right}.meta-val a{color:var(--green);text-decoration:none}
+    .about-meta{display:grid;gap:0.25rem}
+    .meta-row{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border);font-size:13px}
+    .meta-key{color:var(--ink3);flex-shrink:0}
+    .meta-val{color:var(--ink);font-weight:600;text-align:right;padding-left:1rem;word-break:break-word}.meta-val a{color:var(--green);text-decoration:none}
 
     .skills-grid-wrap{display:flex;flex-direction:column;gap:1rem}
-    .skill-row{display:flex;flex-wrap:wrap;gap:0.5rem}
-    .skill-tag{background:#fff;border:1.5px solid var(--border);padding:8px 14px;border-radius:50px;font-size:12px;font-weight:600;color:var(--ink2);transition:all 0.3s ease;cursor:default}
-    .skill-tag:hover{border-color:var(--green);color:var(--green);box-shadow:0 0 10px rgba(15,110,86,0.1);transform:scale(1.05)}
+    .skill-row{display:flex;flex-wrap:wrap;gap:0.75rem}
+    .skill-tag{background:#fff;border:1.5px solid var(--border);padding:8px 16px;border-radius:50px;font-size:12px;font-weight:600;color:var(--ink2);transition:all 0.3s ease;cursor:default}
+    .skill-tag:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
 
     .proj-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
     .proj-card{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column;transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1)}
-    .proj-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:var(--shadow-lg);border-color:var(--green3)}
-    .proj-img-ph{width:100%;height:180px;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink);font-weight:700;background:var(--green3);transition:background 0.4s ease}
-    .proj-card:hover .proj-img-ph{background:var(--green)}
-    .proj-card:hover .proj-img-ph{color:#fff}
-    .proj-body{padding:1.25rem;flex-grow:1}.proj-body h3{font-size:16px;color:var(--ink);margin-bottom:0.75rem}.proj-body p{font-size:13px;color:var(--ink3);line-height:1.6}
-    .proj-footer{padding:1rem 1.25rem;border-top:1px solid var(--border);background:var(--bg2)}.proj-footer a{font-size:12px;color:var(--green);font-weight:700;text-decoration:none}
-    .proj-action{text-align:center;margin-top:2rem}
+    .proj-img-ph{width:100%;height:180px;display:flex;align-items:center;justify-content:center;font-size:13px;padding:1rem;text-align:center;color:var(--ink);font-weight:700;background:var(--green3)}
+    .proj-body{padding:1.5rem;flex-grow:1}.proj-body h3{font-size:17px;color:var(--ink);margin-bottom:0.75rem}.proj-body p{font-size:14px;color:var(--ink3);line-height:1.6}
+    .proj-footer{padding:1.25rem 1.5rem;border-top:1px solid var(--border);background:var(--bg2)}.proj-footer a{font-size:13px;color:var(--green);font-weight:700;text-decoration:none}
+    .proj-action{text-align:center;margin-top:2.5rem}
 
-    .exp-edu-grid{display:grid;grid-template-columns:1fr;gap:2.5rem}
-    .col-title{font-size:13px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.25rem;border-bottom:2px solid var(--green3);padding-bottom:0.5rem;display:block}
-    .tl{display:grid;gap:1rem}
-    .tl-item{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.25rem;transition:all 0.3s ease}
-    .tl-item:hover{border-color:var(--green);box-shadow:var(--shadow-sm)}
-    .tl-summary{font-size:14px;font-weight:700;color:var(--ink)}.tl-sub{font-size:12px;color:var(--green);font-weight:600;margin-top:2px}
-    .tl-content{padding-top:1rem}.tl-content ul{padding-left:1.25rem;display:grid;gap:0.6rem}.tl-content li{font-size:13px;color:var(--ink3);line-height:1.5}
-    .tl-action{margin-top:1rem}
+    .exp-edu-grid{display:grid;grid-template-columns:1fr;gap:3rem}
+    .col-title{font-size:13px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.5rem;border-bottom:2px solid var(--green3);padding-bottom:0.5rem;display:block}
+    .tl{display:grid;gap:1.25rem}
+    .tl-item{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:all 0.3s ease}
+    .tl-summary{font-size:15px;font-weight:700;color:var(--ink)}.tl-sub{font-size:12px;color:var(--green);font-weight:600;margin-top:4px}
+    .tl-content{padding-top:1.25rem}.tl-content ul{padding-left:1.25rem;display:grid;gap:0.75rem}.tl-content li{font-size:13px;color:var(--ink3);line-height:1.6}
+    .tl-action{margin-top:1.25rem}
 
-    .papers-list{display:grid;gap:1rem}
+    .papers-list{display:grid;gap:1.25rem}
     .paper-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-decoration:none;display:block;transition:all 0.3s ease}
-    .paper-card:hover{background:var(--green3);transform:translateX(5px);border-color:var(--green)}
-    .paper-top{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:0.75rem}
-    .paper-title{font-size:14px;font-weight:700;color:var(--ink);line-height:1.4}.paper-status{align-self:flex-start;font-size:9px;background:var(--bg3);color:var(--ink2);padding:3px 8px;border-radius:4px;text-transform:uppercase;font-weight:700;letter-spacing:0.05em}
+    .paper-top{display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1rem}
+    .paper-title{font-size:15px;font-weight:700;color:var(--ink);line-height:1.4}.paper-status{align-self:flex-start;font-size:9px;background:var(--bg3);color:var(--ink2);padding:4px 8px;border-radius:4px;text-transform:uppercase;font-weight:700;letter-spacing:0.05em}
     .paper-desc{font-size:13px;color:var(--ink3);line-height:1.6}
 
-    .contact-grid{display:grid;grid-template-columns:1fr;gap:2rem}
-    .contact-links{display:grid;gap:0.75rem}
-    .c-link{display:flex;align-items:center;gap:1rem;padding:14px 16px;border:1px solid var(--border);border-radius:8px;text-decoration:none;transition:all 0.3s ease;background:#fff}
-    .c-link:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
-    .c-icon{width:36px;height:36px;border-radius:6px;background:var(--bg3);display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0;transition:all 0.3s ease}
-    .c-link:hover .c-icon{background:var(--green);color:#fff}
+    .contact-grid{display:grid;grid-template-columns:1fr;gap:2.5rem}
+    .contact-links{display:grid;gap:1rem}
+    .c-link{display:flex;align-items:center;gap:1rem;padding:16px;border:1px solid var(--border);border-radius:12px;text-decoration:none;transition:all 0.3s ease;background:#fff}
+    .c-icon{width:40px;height:40px;border-radius:8px;background:var(--bg3);display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0}
     
-    footer{background:var(--ink);padding:3rem 1.5rem;text-align:center}
-    .footer-logo{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:0.5rem}.footer-tagline{font-size:12px;color:#aaa;margin-bottom:1.5rem}
-    .footer-social{display:flex;justify-content:center;gap:1.25rem;margin-bottom:1.5rem}.footer-social a{color:#aaa;padding:8px;transition:color 0.2s}.footer-social a:hover{color:#fff}
-    .footer-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}.footer-links a{font-size:12px;color:#aaa;text-decoration:none;padding:5px;transition:color 0.2s}.footer-links a:hover{color:#fff}
-    .footer-copy{font-size:11px;color:#555}
+    footer{background:var(--ink);padding:4rem 1rem 3rem;text-align:center}
+    .footer-logo{font-size:1.25rem;font-weight:800;color:#fff;margin-bottom:0.75rem}.footer-tagline{font-size:12px;color:#aaa;margin-bottom:2rem;line-height:1.5;max-width:280px;margin-left:auto;margin-right:auto}
+    .footer-social{display:flex;justify-content:center;gap:1.5rem;margin-bottom:2rem}.footer-social a{color:#aaa;transition:color 0.2s;display:flex;align-items:center;justify-content:center}.footer-social a:hover{color:#fff}
+    .footer-links{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:2rem}.footer-links a{font-size:13px;color:#aaa;text-decoration:none;transition:color 0.2s}.footer-links a:hover{color:#fff}
+    .footer-copy{font-size:11px;color:#555;border-top:1px solid #222;padding-top:1.5rem}
 
     @media(min-width:850px){
         nav{padding:0 2rem}.nav-links{display:flex}.menu-toggle{display:none}
-        .hero-top-grid{display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:center}
-        .hero-info-grid{grid-template-columns:repeat(3,1fr)}
-        .section{padding:5rem 2rem}
-        .about-grid{grid-template-columns:1fr 280px}
-        .proj-grid{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
-        .exp-edu-grid{grid-template-columns:1fr 1fr;gap:3rem}
-        .contact-grid{grid-template-columns:1fr 1fr}
-        .paper-top{flex-direction:row;justify-content:space-between;align-items:start}
-        .paper-title{font-size:15px}
+        #hero{padding:4rem 2rem}
+        .hero-top-grid{display:grid;grid-template-columns:1fr 360px;gap:4rem;align-items:center;text-align:left}
+        .hero-chips{justify-content:flex-start}
+        .hero-desc{margin-left:0;margin-right:0}
+        .hero-btns{justify-content:flex-start}
         .hero-img-wrap{max-width:none;margin:0}
-        .hero-card{left:-16px;right:auto}
+        .hero-img-placeholder{aspect-ratio:3/4;border-radius:12px}
+        .hero-card{left:-20px;right:auto;bottom:30px}
+        .hero-info-grid{grid-template-columns:repeat(3,1fr);gap:1.5rem}
+        .section{padding:5rem 2rem}
+        .about-grid{grid-template-columns:1fr 320px;gap:4rem}
+        .proj-grid{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}
+        .exp-edu-grid{grid-template-columns:1fr 1fr;gap:4rem}
+        .contact-grid{grid-template-columns:1fr 1fr;gap:4rem}
+        .paper-top{flex-direction:row;justify-content:space-between;align-items:start}
+        .paper-title{font-size:16px}
+    }
+
+    @media(max-width:400px) {
+        .hero-name { font-size: 2rem; }
+        .btn { width: 100%; }
+        .meta-row { flex-direction: column; gap: 4px; }
+        .meta-val { padding-left: 0; text-align: left; }
     }
 </style>
 </head>
 <body>
 <nav>
-<a class="nav-logo" href="#">Hafsah<span class="">.</span></a>
+<a class="nav-logo" href="#">Hafsah<span>.</span></a>
 <ul class="nav-links">
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
@@ -218,7 +215,7 @@
 <li><a href="#contact">Contact</a></li>
 </ul>
 <div style="margin-top:auto">
-<a class="nav-avail" style="display:inline-block">AVAILABLE FOR NEW PROJECTS</a>
+<a class="nav-avail">AVAILABLE FOR NEW PROJECTS</a>
 </div>
 </aside>
 <section id="hero">
@@ -234,29 +231,29 @@
 <span class="chip chip-a">Petroleum Geoscience</span>
 <span class="chip chip-a">Carbon Accounting</span>
 </div>
-<p class="hero-desc">I combine petroleum geoscience and data intelligence to help organisations measure, manage, and reduce their carbon footprints, making Nigeria’s energy transition measurable, transparent, and actionable.</p>
+<p class="hero-desc">I bridge the gap between subsurface geoscience and energy data to make Nigeria’s energy transition transparent, accountable, and accessible — transforming raw emissions data into actionable climate intelligence.</p>
 <div class="hero-btns">
 <a class="btn btn-green" href="#projects">View My Work</a>
 </div>
 </div>
 <div class="hero-img-wrap">
-<img alt="Hafsah Anibaba - Earth Data Scientist" class="hero-img-placeholder" src="img/profile.png"/>
+<img alt="Hafsah Anibaba - Earth Data Scientist" class="hero-img-placeholder" src="img.profile.png"/>
 <div class="hero-card">
-<div class="hero-card-role">Data Analyst</div>
-<div class="hero-card-co">DEER Nigeria</div>
+<div class="hero-card-role" style="font-size: 12px; font-weight: 700; color: var(--ink);">Data Analyst</div>
+<div class="hero-card-co" style="font-size: 11px; color: var(--green);">DEER Nigeria</div>
 </div>
 </div>
 </div>
 <div class="hero-info-grid">
-<div class="info-box reveal">
+<div class="info-box reveal active">
 <h4>Energy Systems + Data</h4>
 <p>Modelling energy demand, forecasting, and emissions using Python, ML, and geospatial analysis for both fossil and renewable systems.</p>
 </div>
-<div class="info-box reveal" style="transition-delay: 0.1s">
+<div class="info-box reveal active" style="transition-delay: 0.1s">
 <h4>ESG Data Engineering</h4>
 <p>Building pipelines for GHG Protocol compliance, flaring quantification, and audit‑ready carbon accounting.</p>
 </div>
-<div class="info-box reveal" style="transition-delay: 0.2s">
+<div class="info-box reveal active" style="transition-delay: 0.2s">
 <h4>Energy Audits &amp; Management</h4>
 <p>CEM‑focused efficiency audits, solar feasibility studies, and M&amp;V for SMEs and energy platforms.</p>
 </div>
@@ -285,8 +282,8 @@
 <span class="ticker-item"><span>·</span> TCFD Frameworks</span>
 </div>
 </div>
-<div class="section-alt">
-<div class="section reveal" id="about">
+<div class="section-alt" id="about-section">
+<div class="section reveal active" id="about">
 <div class="sec-header">
 <div class="sec-label">About Me</div>
 <h2 class="sec-title">Energy Sustainability <em>Professional</em></h2>
@@ -295,10 +292,9 @@
 <div class="about-body">
 <p>Growing up in Nigeria, energy poverty was real. People lost opportunities because there was no light, families cancelled plans, and young people jumped from house to house looking for somewhere to charge a phone or finish an assignment. And yet Nigeria sits on some of the largest natural gas reserves in the world, gas that rather than being preserved as an energy asset, is flared into the atmosphere. <em>That gap between what exists beneath the surface and what reaches people above it is what drove me to understand how energy systems work, and how to help fix them.</em></p>
 <p>Watching the industry, I saw companies genuinely trying to navigate the transition, while communities in the Niger Delta bore costs they never agreed to, and households and businesses made energy decisions entirely by guesswork with no data to guide them. <em>The missing ingredient, at every scale, is the same: the right data, at the right time, in a form people can actually use.</em></p>
-<p><em>I am an energy data scientist with a foundation in petroleum geoscience</em>, built through a BSc in Geophysics from the University of Lagos, an internship at Oando Energy Resource, and a data analyst role at DEER Nigeria. My expertise spans Python, machine learning, geospatial analysis, satellite remote sensing, alongside growing knowledge in ESG frameworks, CCUS, and methane detection. I have also led communities as Campus Lead for GDSC UNILAG, President of the NMGS UNILAG Chapter, and a Millennium Fellow, always with genuine consideration for the people around me.</p>
-<p><em>I am actively seeking graduate study opportunities and early‑career roles across ESG data engineering, energy analytics, CCUS, and energy lifecycle management. Wherever data can make energy more transparent, more accountable, and more accessible – that's where I want to be.</em></p>
+<p><em>I am an energy data scientist with a foundation in petroleum geoscience</em>, built through a BSc in Geophysics from the University of Lagos, an internship at Oando Energy Resource, and a data analyst role at DEER Nigeria. My expertise spans Python, machine learning, geospatial analysis, satellite remote sensing, alongside growing knowledge in ESG frameworks, CCUS, and methane detection.</p>
 </div>
-<div class="about-meta reveal" style="transition-delay: 0.2s">
+<div class="about-meta reveal active" style="transition-delay: 0.2s">
 <div class="meta-row"><span class="meta-key">Degree</span><span class="meta-val">BSc. Geophysics</span></div>
 <div class="meta-row"><span class="meta-key">CGPA</span><span class="meta-val">4.06 / 5.00</span></div>
 <div class="meta-row"><span class="meta-key">Location</span><span class="meta-val">Lagos, Nigeria</span></div>
@@ -308,7 +304,7 @@
 </div>
 </div>
 </div>
-<div class="section reveal" id="skills">
+<div class="section reveal active" id="skills">
 <div class="sec-header">
 <div class="sec-label">Skillset</div>
 <h2 class="sec-title">Technical <em>Capabilities</em></h2>
@@ -335,7 +331,7 @@
 </div>
 </div>
 <div class="section-alt" id="projects">
-<div class="section reveal">
+<div class="section reveal active">
 <div class="sec-header">
 <div class="sec-label">Work</div>
 <h2 class="sec-title">Featured <em>Projects</em></h2>
@@ -352,7 +348,7 @@
 </div>
 </div>
 <div class="proj-card">
-<div class="proj-img-ph" style="background:var(--amber2)">Infrastructure Risk GIS</div>
+<div class="proj-img-ph" style="background: var(--amber2);">Infrastructure Risk GIS</div>
 <div class="proj-body">
 <h3>Power Corridor Encroachment</h3>
 <p>Spatial autocorrelation modeling to quantify vegetation risk for utility providers, reducing maintenance overhead and ensuring field safety.</p>
@@ -367,7 +363,7 @@
 </div>
 </div>
 </div>
-<div class="section reveal" id="experience">
+<div class="section reveal active" id="experience">
 <div class="sec-header">
 <div class="sec-label">Background</div>
 <h2 class="sec-title">Education &amp; <em>Experience</em></h2>
@@ -376,7 +372,7 @@
 <div>
 <h3 class="col-title">Experience</h3>
 <div class="tl">
-<div class="tl-item reveal">
+<div class="tl-item reveal active">
 <div class="tl-summary">Data Analyst | DEER Nigeria</div>
 <div class="tl-sub">2025 – Present · Lagos, Nigeria</div>
 <div class="tl-content">
@@ -387,79 +383,79 @@
 </ul>
 </div>
 </div>
-<div class="tl-item reveal">
+<div class="tl-item reveal active">
 <div class="tl-summary">Geophysics Intern | Oando PLC</div>
 <div class="tl-sub">2024 · Nigeria</div>
 <div class="tl-content">
 <ul>
-<li>Used Python for petrophysical analysis across 9 wells in a sample field</li>
+<li>Used Python for petrophysical analysis across 9 wells in a field</li>
 <li>Petrophysical analysis and well correlation using Petrel software</li>
-<li>Applied fault interpretation and seismic horizon mapping across cubes</li>
+<li>Applied fault interpretation and seismic horizon mapping</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="tl-action">
-<a class="btn btn-outline btn-full" href="#" style="width:100%">View past experience</a>
+<a class="btn btn-outline" href="#" style="width: 100%;">View past experience</a>
 </div>
 </div>
 <div>
 <h3 class="col-title">Education</h3>
 <div class="tl">
-<div class="tl-item reveal">
+<div class="tl-item reveal active">
 <div class="tl-summary">BSc. Geophysics | UNILAG</div>
 <div class="tl-sub">2017 – 2024 · 4.06 CGPA</div>
 <div class="tl-content">
 <ul>
 <li>Specialised in GIS, Geothermal Energy, and Quantitative Geophysics</li>
-<li>Applied Python programming to geophysical analysis throughout the degree</li>
-<li>Led research projects combining subsurface analysis with data science</li>
+<li>Applied Python programming to geophysical analysis</li>
+<li>Led research combining subsurface analysis with data science</li>
 </ul>
 </div>
 </div>
-<div class="tl-item reveal">
+<div class="tl-item reveal active">
 <div class="tl-summary">Millennium Fellowship</div>
 <div class="tl-sub">2023 · Global Leadership Program</div>
 <div class="tl-content">
 <ul>
-<li>Selected for a leadership program by MCN and United Nations Academic Impact</li>
-<li>Advanced Sustainable Development Goals (SDGs) through impact projects</li>
+<li>Selected for a leadership program by MCN and UNAI</li>
+<li>Advanced Sustainable Development Goals through impact projects</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="tl-action">
-<a class="btn btn-outline btn-full" href="#" style="width:100%">View my learning history</a>
+<a class="btn btn-outline" href="#" style="width: 100%;">View learning history</a>
 </div>
 </div>
 </div>
 </div>
 <div class="section-alt" id="papers">
-<div class="section reveal">
+<div class="section reveal active">
 <div class="sec-header">
 <div class="sec-label">Research</div>
 <h2 class="sec-title">Published Technical <em>Papers</em></h2>
 </div>
 <div class="papers-list">
-<a class="paper-card reveal-left" href="#">
+<a class="paper-card reveal-left active" href="#">
 <div class="paper-top">
 <h3 class="paper-title">Using public well logs and flaring data to predict carbon intensity of Nigerian oil fields</h3>
 <span class="paper-status">Preprint</span>
 </div>
 <p class="paper-desc">A predictive model methodology for upstream ESG reporting, bridging subsurface physics with emissions quantification.</p>
 </a>
-<a class="paper-card reveal-left" href="#" style="transition-delay: 0.1s">
+<a class="paper-card reveal-left active" href="#" style="transition-delay: 0.1s;">
 <div class="paper-top">
 <h3 class="paper-title">A framework for SME energy audits using external tariff and consumption data</h3>
 <span class="paper-status">In Progress</span>
 </div>
-<p class="paper-desc">Proposing a data-driven audit methodology for Nigerian small businesses without the need for expensive on-site instrumentation.</p>
+<p class="paper-desc">Proposing a data-driven audit methodology for Nigerian small businesses without expensive on-site instrumentation.</p>
 </a>
 </div>
 <div class="proj-action"><a class="btn btn-outline" href="#">View More Papers</a></div>
 </div>
 </div>
-<div class="section reveal" id="contact">
+<div class="section reveal active" id="contact">
 <div class="section">
 <div class="sec-header">
 <div class="sec-label">Get in Touch</div>
@@ -469,32 +465,26 @@
 <div class="contact-body">
 <p>I am open to graduate programmes and early-career roles in <strong>ESG data engineering and energy consulting</strong>.</p>
 <p>If you are working on <strong>decarbonisation in Nigeria's energy sector</strong> — I want to hear from you.</p>
-<p style="font-size:12px;color:var(--ink3);margin-top:1rem;font-style:italic">Available for strategic partnerships and energy audit projects.</p>
+<p style="font-size: 13px; color: var(--ink3); margin-top: 1rem; font-style: italic;">Available for strategic partnerships and energy audit projects.</p>
 </div>
 <div class="contact-links">
 <a class="c-link" href="mailto:hafsahanibaba@gmail.com">
 <div class="c-icon">
 <svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
 </div>
-<div><div class="c-text-label" style="font-size:11px;color:var(--ink3)">Email</div><div class="c-text-val" style="font-size:14px;font-weight:600">hafsahanibaba@gmail.com</div></div>
+<div><div style="font-size: 11px; color: var(--ink3);">Email</div><div style="font-size: 14px; font-weight: 600; word-break: break-all;">hafsahanibaba@gmail.com</div></div>
 </a>
 <a class="c-link" href="https://www.linkedin.com/in/hafsah-anibaba">
 <div class="c-icon">
 <svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
 </div>
-<div><div class="c-text-label" style="font-size:11px;color:var(--ink3)">LinkedIn</div><div class="c-text-val" style="font-size:14px;font-weight:600">hafsah-anibaba</div></div>
+<div><div style="font-size: 11px; color: var(--ink3);">LinkedIn</div><div style="font-size: 14px; font-weight: 600;">hafsah-anibaba</div></div>
 </a>
 <a class="c-link" href="https://github.com/hafsah2020">
 <div class="c-icon">
 <svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.38-1.99 1.01-2.69-.1-.25-.44-1.27.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.63.7 1.01 1.6 1.01 2.69 0 3.83-2.34 4.68-4.57 4.92.36.31.68.92.68 1.85v2.75c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path></svg>
 </div>
-<div><div class="c-text-label" style="font-size:11px;color:var(--ink3)">GitHub</div><div class="c-text-val" style="font-size:14px;font-weight:600">hafsah2020</div></div>
-</a>
-<a class="c-link" href="https://wa.me/2349035131946">
-<div class="c-icon">
-<svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 18.35c-1.41 0-2.78-.36-3.97-1.03l-.28-.17-2.92.77.78-2.86-.18-.29a8.177 8.177 0 0 1-1.39-4.46c0-4.53 3.68-8.21 8.21-8.21 2.19 0 4.25.86 5.81 2.42 1.56 1.57 2.42 3.64 2.42 5.83 0 4.53-3.68 8.21-8.21 8.21m4.52-6.16c-.25-.12-1.47-.73-1.69-.81-.23-.09-.39-.12-.56.12-.17.25-.64.81-.78.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.12-.25-.01-.39.11-.51.11-.1.25-.26.37-.39.12-.13.16-.22.25-.37.09-.14.04-.27-.02-.38-.07-.12-.56-1.35-.77-1.84-.2-.48-.41-.41-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.89.87-.89 2.12 0 1.25.91 2.46 1.04 2.63.13.17 1.77 2.71 4.3 3.8.6.26 1.07.41 1.43.52.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.59.21-1.09.15-1.18-.07-.09-.23-.14-.48-.25z"></path></svg>
-</div>
-<div><div class="c-text-label" style="font-size:11px;color:var(--ink3)">WhatsApp</div><div class="c-text-val" style="font-size:14px;font-weight:600">+234 903 513 1946</div></div>
+<div><div style="font-size: 11px; color: var(--ink3);">GitHub</div><div style="font-size: 14px; font-weight: 600;">hafsah2020</div></div>
 </a>
 </div>
 </div>
@@ -504,9 +494,9 @@
 <div class="footer-logo">Hafsah<span>.</span></div>
 <div class="footer-tagline">Earth Data Scientist · ESG Data Engineering · Energy Management</div>
 <div class="footer-social">
-<a href="mailto:hafsahanibaba@gmail.com"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg></a>
-<a href="https://www.linkedin.com/in/hafsah-anibaba"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
-<a href="https://github.com/hafsah2020"><svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.38-1.99 1.01-2.69-.1-.25-.44-1.27.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.63.7 1.01 1.6 1.01 2.69 0 3.83-2.34 4.68-4.57 4.92.36.31.68.92.68 1.85v2.75c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path></svg></a>
+<a aria-label="Email" href="mailto:hafsahanibaba@gmail.com"><svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg></a>
+<a aria-label="LinkedIn" href="https://www.linkedin.com/in/hafsah-anibaba"><svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
+<a aria-label="GitHub" href="https://github.com/hafsah2020"><svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.38-1.99 1.01-2.69-.1-.25-.44-1.27.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.54 1.37.2 2.39.1 2.64.63.7 1.01 1.6 1.01 2.69 0 3.83-2.34 4.68-4.57 4.92.36.31.68.92.68 1.85v2.75c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path></svg></a>
 </div>
 <div class="footer-links">
 <a href="#about">About</a>
@@ -519,7 +509,6 @@
 </footer>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu
     const menuToggle = document.getElementById('menuToggle');
     const navDrawer = document.getElementById('navDrawer');
     const drawerOverlay = document.getElementById('drawerOverlay');
@@ -528,7 +517,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleMenu() {
         navDrawer.classList.toggle('active');
         drawerOverlay.classList.toggle('active');
-        
         const icon = menuToggle.querySelector('.material-symbols-outlined');
         if (navDrawer.classList.contains('active')) {
             icon.textContent = 'close';
@@ -543,26 +531,16 @@ document.addEventListener('DOMContentLoaded', () => {
     drawerOverlay.addEventListener('click', toggleMenu);
     drawerLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
-    // Scroll Reveal Intersection Observer
-    const revealOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                // Optional: Unobserve after revealing to prevent repeated animations
-                // revealObserver.unobserve(entry.target);
             }
         });
-    }, revealOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    const reveals = document.querySelectorAll('.reveal, .reveal-left');
-    reveals.forEach(el => revealObserver.observe(el));
+    document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObserver.observe(el));
 
-    // Smooth reveal for anchor tags
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
